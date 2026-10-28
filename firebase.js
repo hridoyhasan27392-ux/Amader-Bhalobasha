@@ -1,22 +1,31 @@
+
 import { initializeApp } from "https://www.gstatic.com/firebasejs/13.1.0/firebase-app.js";
+
 import {
   getAuth,
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
-  signOut
+  signOut,
+  onAuthStateChanged
 } from "https://www.gstatic.com/firebasejs/13.1.0/firebase-auth.js";
+
 import {
   getFirestore,
+  doc,
+  getDoc,
+  setDoc,
+  updateDoc,
   collection,
   addDoc,
   query,
+  where,
   orderBy,
   onSnapshot,
   serverTimestamp
 } from "https://www.gstatic.com/firebasejs/13.1.0/firebase-firestore.js";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyBdcoNjolb98GginB2pgj5poxb6LoBPPpI",
+  apiKey: "AIzaSyBdcoNjol98GginB2pgj5poxb6LoBPPpI",
   authDomain: "amader-bhalobasha.firebaseapp.com",
   projectId: "amader-bhalobasha",
   storageBucket: "amader-bhalobasha.firebasestorage.app",
@@ -33,9 +42,15 @@ export {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
   signOut,
+  onAuthStateChanged,
+  doc,
+  getDoc,
+  setDoc,
+  updateDoc,
   collection,
   addDoc,
   query,
+  where,
   orderBy,
   onSnapshot,
   serverTimestamp
