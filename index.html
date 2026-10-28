@@ -234,5 +234,21 @@ load();
   <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-auth-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-database-compat.js"></script>
+<script>
+const firebaseConfig = {
+  apiKey: "AIzaSyBdcoNjolb98GginB2pgj5poxb6LoBPPpI",
+  authDomain: "amader-bhalobasha.firebaseapp.com",
+  databaseURL: "https://amader-bhalobasha-default-rtdb.europe-west1.firebasedatabase.app",
+  projectId: "amader-bhalobasha",
+  storageBucket: "amader-bhalobasha.firebasestorage.app",
+  messagingSenderId: "192075618706",
+  appId: "1:192075618706:web:ae76e6d5a26bdd1f36094b",
+  measurementId: "G-7EH1P86QG8"
+};
+
+if (!firebase.apps.length) {
+  firebase.initializeApp(firebaseConfig);
+}
+</script>
 </body>
 </html>
