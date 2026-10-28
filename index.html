@@ -171,5 +171,65 @@ $('resetAll').addEventListener('click',()=>{if(confirm('নাম, চিঠি 
 document.querySelectorAll('[data-close]').forEach(btn=>btn.addEventListener('click',()=>$(btn.dataset.close).close()));
 load();
 </script>
+  <dialog id="chatDialog">
+  <div class="dialog-head">
+    <h2>💗 আমাদের চ্যাট</h2>
+    <button class="close" id="closeChatBtn">×</button>
+  </div>
+
+  <div id="chatSetup">
+    <p class="hint">
+      দুজন একই গোপন কোড ব্যবহার করে ব্যক্তিগত চ্যাটে যুক্ত হও।
+    </p>
+
+    <label class="label" for="chatName">এই ফোনে তোমার নাম</label>
+    <input id="chatName" class="field" maxlength="40"
+           placeholder="যেমন: হৃদয়">
+
+    <button id="createRoomBtn" class="btn">
+      💞 নতুন চ্যাট তৈরি করো
+    </button>
+
+    <hr class="divider">
+
+    <label class="label" for="joinCode">
+      স্ত্রীর দেওয়া গোপন কোড
+    </label>
+    <input id="joinCode" class="field" maxlength="12"
+           placeholder="১২ অক্ষরের কোড" autocomplete="off">
+
+    <button id="joinRoomBtn" class="btn soft">
+      🔗 কোড দিয়ে যুক্ত হও
+    </button>
+
+    <p id="chatSetupStatus" class="chat-status" aria-live="polite"></p>
+  </div>
+
+  <div id="chatArea" class="hide">
+    <p class="chat-status" id="roomStatus"></p>
+
+    <div class="actions">
+      <button id="copyRoomCodeBtn" class="btn soft">
+        📋 কোড দেখাও
+      </button>
+      <button id="leaveRoomBtn" class="btn line">
+        লগআউট
+      </button>
+    </div>
+
+    <div id="chatMessages" class="chat-window"
+         aria-live="polite" aria-label="চ্যাটের মেসেজ"></div>
+
+    <form id="chatForm" class="chat-compose">
+      <textarea id="chatInput" maxlength="1000"
+                placeholder="মনের কথা লিখো ❤️"
+                aria-label="মেসেজ লিখুন" required></textarea>
+      <button id="sendChatBtn" type="submit">পাঠাও ➤</button>
+    </form>
+    <p class="chat-status">
+      ইন্টারনেট সংযোগ থাকলে নতুন মেসেজ স্বয়ংক্রিয়ভাবে দেখা যাবে।
+    </p>
+  </div>
+  </dialog>
 </body>
 </html>
