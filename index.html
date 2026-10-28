@@ -57,8 +57,21 @@ const promises=['আজ আমরা একে অপরের কথা মন 
 const moodText={happy:'তোমার খুশি আমারও খুশি। চলো এই সুন্দর মুহূর্তটা একসঙ্গে উপভোগ করি। 🥰',sad:'তোমাকে এখনই সব ঠিক করতে হবে না। চাইলে আমি তোমার কথা শুনব—তুমি একা নও। 🤍',angry:'তোমার অভিমানও গুরুত্বপূর্ণ। আগে তোমার কথা শুনি, তারপর শান্তভাবে সমাধান খুঁজি। 🌷',tired:'একটু বিশ্রাম নাও, পানি খাও। সবকিছু একা সামলাতে হবে না—আমি পাশে আছি। 🤗'};
 let state={yourName:'আমার মানুষ',partnerName:'প্রিয়তমা',anniversary:'',letter:defaultLetter,photos:[]};
 const $=id=>document.getElementById(id);
-function load(){try{const saved=JSON.parse(localStorage.getItem(KEY)||'null');if(saved&&typeof saved==='object')state={...state,...saved};}catch(e){toast('আগের সংরক্ষিত তথ্য পড়া যায়নি।');}render();}
-function persist(){try{localStorage.setItem(KEY,JSON.stringify(state));return true;}catch(e){toast('স্টোরেজ পূর্ণ হতে পারে। কিছু ছবি মুছে আবার চেষ্টা করো।');return false;}}
+function load(){try{const saved=JSON.parse(localStorage.getItem(KEY)||'null');if(saved&&typeof saved==='object')state={...state,...saved};}catch(e){toast('আগের সংরক্ষিত তথ্য পড়া যায়নি।');}render()function persist(){
+  try {
+    localStorage.setItem(KEY, JSON.stringify(state));
+    window.dispatchEvent(new CustomEvent('love-state-changed', {
+      detail: {
+        ...state,
+        photos: []
+      }
+    }));
+    return true;
+  } catch(e) {
+    toast('স্টোরেজ পূর্ণ হতে পারে। কিছু ছবি মুছে আবার চেষ্টা করো।');
+    return false;
+  }
+  }
 function toast(msg){const el=$('toast');el.textContent=msg;el.classList.add('show');clearTimeout(toast.timer);toast.timer=setTimeout(()=>el.classList.remove('show'),2600);}
 function openDialog(id){$(id).showModal();}
 function render(){ $('heroTitle').textContent=`${state.partnerName||'প্রিয়তমা'}, তুমি আমার সবচেয়ে প্রিয় ❤️`; $('letterInput').value=state.letter||defaultLetter; $('yourName').value=state.yourName||''; $('partnerName').value=state.partnerName||''; $('anniversary').value=state.anniversary||''; $('specialDateText').textContent=state.anniversary?`আমাদের বিশেষ দিন: ${state.anniversary}`:'একটি স্মরণীয় তারিখ যোগ করো'; renderPhotos(); }
