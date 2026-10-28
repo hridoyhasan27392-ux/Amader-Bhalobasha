@@ -1,0 +1,40 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    function signedIn() { return request.auth != null; }
+    function member(roomId) {
+      return signedIn()
+        && exists(/databases/$(database)/documents/rooms/$(roomId))
+        && (get(/databases/$(database)/documents/rooms/$(roomId)).data.ownerUid == request.auth.uid
+          || get(/databases/$(database)/documents/rooms/$(roomId)).data.partnerUid == request.auth.uid);
+    }
+    match /rooms/{roomId} {
+      allow create: if signedIn()
+        && request.resource.data.keys().hasOnly(['ownerUid','partnerUid','createdAt'])
+        && request.resource.data.ownerUid == request.auth.uid
+        && request.resource.data.partnerUid == null;
+      allow get: if signedIn() && (resource.data.partnerUid == null
+        || resource.data.ownerUid == request.auth.uid
+        || resource.data.partnerUid == request.auth.uid);
+      allow list: if false;
+      allow update: if signedIn() && resource.data.partnerUid == null
+        && resource.data.ownerUid != request.auth.uid
+        && request.resource.data.ownerUid == resource.data.ownerUid
+        && request.resource.data.partnerUid == request.auth.uid
+        && request.resource.data.diff(resource.data).affectedKeys().hasOnly(['partnerUid']);
+      allow delete: if false;
+      match /shared/{docId} {
+        allow read: if docId == 'state' && member(roomId);
+        allow create, update: if docId == 'state' && member(roomId)
+          && request.resource.data.keys().hasOnly(['yourName','partnerName','anniversary','letter','dailyMessage','updatedBy','updatedAt'])
+          && request.resource.data.updatedBy == request.auth.uid
+          && request.resource.data.yourName is string
+          && request.resource.data.partnerName is string
+          && request.resource.data.anniversary is string
+          && request.resource.data.letter is string
+          && request.resource.data.dailyMessage is string;
+        allow delete: if false;
+      }
+    }
+  }
+}
