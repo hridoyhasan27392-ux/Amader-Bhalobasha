@@ -250,5 +250,269 @@ if (!firebase.apps.length) {
   firebase.initializeApp(firebaseConfig);
 }
 </script>
+  <script>
+(() => {
+  const $ = id => document.getElementById(id);
+
+  const auth = firebase.auth();
+  const db = firebase.database();
+
+  let currentUser = null;
+  let currentRoom = "";
+  let messageListener = null;
+
+  const savedRoomKey = "amader_bhalobasha_chat_room";
+
+  function status(message) {
+    $("chatSetupStatus").textContent = message;
+  }
+
+  async function signIn() {
+    if (auth.currentUser) {
+      currentUser = auth.currentUser;
+      return currentUser;
+    }
+
+    const result = await auth.signInAnonymously();
+    currentUser = result.user;
+    return currentUser;
+  }
+
+  function makeRoomCode() {
+    const chars = "ABCDEFGHJKLMNPQRSTUVWXYZ23456789";
+    const bytes = new Uint8Array(12);
+    crypto.getRandomValues(bytes);
+    return Array.from(bytes, b => chars[b % chars.length]).join("");
+  }
+
+  function showSetup() {
+    $("chatSetup").classList.remove("hide");
+    $("chatArea").classList.add("hide");
+  }
+
+  function showChat(room) {
+    currentRoom = room;
+    localStorage.setItem(savedRoomKey, room);
+
+    $("chatSetup").classList.add("hide");
+    $("chatArea").classList.remove("hide");
+    $("roomStatus").textContent = "আমাদের গোপন কোড: " + room;
+
+    if (messageListener) {
+      db.ref("messages/" + currentRoom)
+        .off("value", messageListener);
+    }
+
+    const messagesRef = db.ref("messages/" + room);
+
+    messageListener = snapshot => {
+      const box = $("chatMessages");
+      box.replaceChildren();
+
+      snapshot.forEach(child => {
+        const msg = child.val();
+        if (!msg || typeof msg.text !== "string") return;
+
+        const bubble = document.createElement("div");
+        bubble.className = "chat-bubble " +
+          (msg.uid === currentUser.uid
+            ? "chat-mine"
+            : "chat-theirs");
+
+        const text = document.createElement("div");
+        text.textContent = msg.text;
+
+        const meta = document.createElement("div");
+        meta.className = "chat-meta";
+        const time = msg.time
+          ? new Date(msg.time).toLocaleString("bn-BD", {
+              hour: "2-digit",
+              minute: "2-digit"
+            })
+          : "এখন";
+
+        meta.textContent = (msg.name || "প্রিয় মানুষ") + " · " + time;
+        bubble.append(text, meta);
+        box.appendChild(bubble);
+      });
+
+      box.scrollTop = box.scrollHeight;
+    };
+
+    messagesRef.limitToLast(100).on("value", messageListener);
+  }
+
+  async function createRoom() {
+    try {
+      $("createRoomBtn").disabled = true;
+      status("নিরাপদ সংযোগ তৈরি হচ্ছে...");
+
+      await signIn();
+
+      const room = makeRoomCode();
+      const name = $("chatName").value.trim() || "আমার মানুষ";
+
+      await db.ref("roomMeta/" + room).set({
+        createdBy: currentUser.uid,
+        createdAt: firebase.database.ServerValue.TIMESTAMP
+      });
+
+      await db.ref("members/" + room + "/" + currentUser.uid)
+        .set(true);
+
+      localStorage.setItem("amader_bhalobasha_chat_name", name);
+      showChat(room);
+
+      $("roomStatus").textContent =
+        "কোডটি তোমার সঙ্গীকে দাও: " + room;
+      alert("তোমাদের গোপন চ্যাট কোড: " + room +
+        "\nকোডটি তোমার সঙ্গীর সঙ্গে শেয়ার করো।");
+    } catch (error) {
+      console.error(error);
+      status("চ্যাট তৈরি হয়নি। Firebase Database Rules ও সংযোগ পরীক্ষা করো।");
+    } finally {
+      $("createRoomBtn").disabled = false;
+    }
+  }
+
+  async function joinRoom() {
+    try {
+      $("joinRoomBtn").disabled = true;
+      status("কোড যাচাই করা হচ্ছে...");
+
+      await signIn();
+
+      const room = $("joinCode").value.trim().toUpperCase();
+
+      if (!/^[A-HJ-NP-Z2-9]{12}$/.test(room)) {
+        status("সঠিক ১২ অক্ষরের গোপন কোড লিখো।");
+        return;
+      }
+
+      const metaSnap = await db.ref("roomMeta/" + room).once("value");
+
+      if (!metaSnap.exists()) {
+        status("এই কোডের কোনো চ্যাট পাওয়া যায়নি।");
+        return;
+      }
+
+      const membersRef = db.ref("members/" + room);
+      const membersSnap = await membersRef.once("value");
+      const members = membersSnap.val() || {};
+      const memberIds = Object.keys(members);
+
+      if (!members[currentUser.uid] && memberIds.length >= 2) {
+        status("এই চ্যাটে ইতিমধ্যে দুজন যুক্ত আছেন।");
+        return;
+      }
+
+      await membersRef.child(currentUser.uid).set(true);
+
+      const name = $("chatName").value.trim() || "প্রিয় মানুষ";
+      localStorage.setItem("amader_bhalobasha_chat_name", name);
+
+      showChat(room);
+      status("");
+    } catch (error) {
+      console.error(error);
+      status("যুক্ত হওয়া যায়নি। কোড, ইন্টারনেট ও Database Rules পরীক্ষা করো।");
+    } finally {
+      $("joinRoomBtn").disabled = false;
+    }
+  }
+
+  $("openChatBtn").addEventListener("click", async () => {
+    openDialog("chatDialog");
+    $("chatName").value =
+      localStorage.getItem("amader_bhalobasha_chat_name") || "";
+
+    try {
+      await signIn();
+      const room = localStorage.getItem(savedRoomKey);
+
+      if (room) {
+        const memberSnap = await db.ref(
+          "members/" + room + "/" + currentUser.uid
+        ).once("value");
+
+        if (memberSnap.val() === true) {
+          showChat(room);
+        } else {
+          showSetup();
+        }
+      } else {
+        showSetup();
+      }
+    } catch (error) {
+      console.error(error);
+      status("সংযোগ হয়নি। ইন্টারনেট ও Firebase সেটিংস পরীক্ষা করো।");
+    }
+  });
+
+  $("createRoomBtn").addEventListener("click", createRoom);
+  $("joinRoomBtn").addEventListener("click", joinRoom);
+
+  $("copyRoomCodeBtn").addEventListener("click", async () => {
+    try {
+      await navigator.clipboard.writeText(currentRoom);
+      $("roomStatus").textContent = "গোপন কোড কপি হয়েছে: " + currentRoom;
+    } catch (error) {
+      $("roomStatus").textContent = "তোমার গোপন কোড: " + currentRoom;
+    }
+  });
+
+  $("leaveRoomBtn").addEventListener("click", () => {
+    if (messageListener && currentRoom) {
+      db.ref("messages/" + currentRoom)
+        .off("value", messageListener);
+    }
+
+    messageListener = null;
+    currentRoom = "";
+    showSetup();
+  });
+
+  $("closeChatBtn").addEventListener("click", () => {
+    if (messageListener && currentRoom) {
+      db.ref("messages/" + currentRoom)
+        .off("value", messageListener);
+    }
+
+    messageListener = null;
+    $("chatDialog").close();
+  });
+
+  $("chatForm").addEventListener("submit", async event => {
+    event.preventDefault();
+
+    const text = $("chatInput").value.trim();
+    if (!text || !currentRoom || !currentUser) return;
+
+    const button = $("sendChatBtn");
+    button.disabled = true;
+
+    try {
+      const name =
+        localStorage.getItem("amader_bhalobasha_chat_name") ||
+        "আমার মানুষ";
+
+      await db.ref("messages/" + currentRoom).push({
+        uid: currentUser.uid,
+        name: name,
+        text: text,
+        time: firebase.database.ServerValue.TIMESTAMP
+      });
+
+      $("chatInput").value = "";
+    } catch (error) {
+      console.error(error);
+      alert("মেসেজ পাঠানো যায়নি। Database Rules ও ইন্টারনেট পরীক্ষা করো।");
+    } finally {
+      button.disabled = false;
+    }
+  });
+
+})();
+  </script>
 </body>
 </html>
