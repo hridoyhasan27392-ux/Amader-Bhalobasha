@@ -8,230 +8,48 @@
 <style>
 :root{--wine:#8f234d;--rose:#d94f7d;--pink:#fff0f5;--ink:#482333;--muted:#886b78;--card:rgba(255,255,255,.88)}
 *{box-sizing:border-box}body{margin:0;color:var(--ink);font-family:system-ui,-apple-system,"Noto Sans Bengali",sans-serif;background:radial-gradient(circle at top left,#ffe1eb,transparent 35%),linear-gradient(150deg,#fff7fa,#fce4ed 55%,#f8dce8);min-height:100vh}
-button,input,textarea{font:inherit}button{cursor:pointer;border:0}.app{max-width:760px;margin:auto;padding:18px 14px 36px}.top{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:16px}.brand{font-weight:900;font-size:1.05rem;color:var(--wine)}.tiny{font-size:.8rem;color:var(--muted)}.hero{position:relative;overflow:hidden;text-align:center;padding:28px 18px 26px;border-radius:28px;background:linear-gradient(135deg,#9a2453,#d84f7b 65%,#f28aa8);color:white;box-shadow:0 14px 35px #9b31532b}.hero:before,.hero:after{content:'♡';position:absolute;font-size:100px;color:#ffffff18;transform:rotate(-15deg)}.hero:before{left:-8px;top:-24px}.hero:after{right:-5px;bottom:-45px}.heart{font-size:48px;display:block;filter:drop-shadow(0 6px 8px #5a102d44);animation:pulse 1.8s infinite}.hero h1{font-size:clamp(1.6rem,6vw,2.4rem);margin:7px 0}.hero p{margin:8px auto 18px;max-width:480px;line-height:1.8;color:#fff5f8}.primary{background:white;color:var(--wine);border-radius:999px;padding:12px 20px;font-weight:800;box-shadow:0 5px 15px #5a102d22}.primary:active,.btn:active{transform:scale(.98)}.section-title{font-size:1.13rem;margin:24px 4px 12px}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.card{background:var(--card);border:1px solid #fff;border-radius:20px;padding:16px;box-shadow:0 7px 22px #9c315310;min-width:0}.tile{display:flex;align-items:center;gap:11px;text-align:left;width:100%;background:transparent;color:var(--ink);padding:0}.emoji{width:46px;height:46px;display:grid;place-items:center;border-radius:15px;background:#ffe4ed;font-size:24px;flex-shrink:0}.tile strong{display:block}.tile small{color:var(--muted);display:block;margin-top:3px;line-height:1.5}.wide{grid-column:1/-1}.btn{padding:10px 14px;border-radius:12px;background:var(--wine);color:white;font-weight:700}.btn.soft{background:#ffe4ed;color:var(--wine)}.btn.line{background:white;color:var(--wine);border:1px solid #f0c6d5}.actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}.letter{white-space:pre-wrap;line-height:1.9;font-size:1rem}.field{width:100%;padding:12px 13px;border:1px solid #efc5d4;border-radius:12px;background:#fffafd;color:var(--ink);outline-color:var(--rose);margin:7px 0}.label{display:block;font-size:.9rem;font-weight:750;margin-top:10px}.hint{font-size:.82rem;color:var(--muted);line-height:1.6}.photo-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-top:12px}.photo{background:#fff;border-radius:14px;padding:7px;box-shadow:0 3px 12px #5b20300f}.photo img{display:block;width:100%;aspect-ratio:1;object-fit:cover;border-radius:10px}.photo p{font-size:.86rem;margin:7px 2px;overflow-wrap:anywhere}.photo button{font-size:.8rem}.moods{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:12px}.mood{background:#fff0f5;border-radius:14px;padding:11px 4px;color:var(--wine);font-size:.84rem}.mood span{display:block;font-size:25px;margin-bottom:4px}.footer{text-align:center;color:var(--muted);font-size:.8rem;padding:26px 8px 8px;line-height:1.8}.toast{position:fixed;left:50%;bottom:24px;transform:translate(-50%,20px);opacity:0;pointer-events:none;background:#542039;color:white;border-radius:999px;padding:11px 17px;box-shadow:0 8px 24px #40132844;transition:.25s;z-index:20;max-width:90%;text-align:center}.toast.show{opacity:1;transform:translate(-50%,0)}.floating{position:fixed;bottom:-30px;pointer-events:none;z-index:10;animation:floatUp 3.2s ease-in forwards;font-size:22px}@keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.12)}}@keyframes floatUp{to{transform:translateY(-110vh) rotate(30deg);opacity:0}}.hide{display:none!important}dialog{border:0;border-radius:22px;width:min(92%,520px);padding:20px;color:var(--ink);box-shadow:0 20px 70px #42122b40;background:#fff8fb}dialog::backdrop{background:#35102088}.dialog-head{display:flex;align-items:center;justify-content:space-between;gap:10px}.close{background:#ffe4ed;color:var(--wine);border-radius:50%;width:36px;height:36px;font-size:20px}.empty{text-align:center;color:var(--muted);padding:16px 5px}.divider{border:0;border-top:1px solid #f5d7e2;margin:14px 0}
+button,input,textarea{font:inherit}button{cursor:pointer;border:0}.app{max-width:760px;margin:auto;padding:18px 14px 36px}.top{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:16px}.brand{font-weight:900;font-size:1.05rem;color:var(--wine)}.tiny{font-size:.8rem;color:var(--muted)}.hero{position:relative;overflow:hidden;text-align:center;padding:28px 18px 26px;border-radius:28px;background:linear-gradient(135deg,#9a2453,#d84f7b 65%,#f28aa8);color:white;box-shadow:0 14px 35px #9b31532b}.hero:before,.hero:after{content:'♡';position:absolute;font-size:100px;color:#ffffff18;transform:rotate(-15deg)}.hero:before{left:-8px;top:-24px}.hero:after{right:-5px;bottom:-45px}.heart{font-size:48px;display:block;filter:drop-shadow(0 6px 8px #5a102d44);animation:pulse 1.8s infinite}.hero h1{font-size:clamp(1.6rem,6vw,2.4rem);margin:7px 0}.hero p{margin:8px auto 18px;max-width:480px;line-height:1.8;color:#fff5f8}.primary{background:white;color:var(--wine);border-radius:999px;padding:12px 20px;font-weight:800;box-shadow:0 5px 15px #5a102d22}.primary:active,.btn:active{transform:scale(.98)}.section-title{font-size:1.13rem;margin:24px 4px 12px}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.card{background:var(--card);border:1px solid #fff;border-radius:20px;padding:16px;box-shadow:0 7px 22px #9c315310;min-width:0}.tile{display:flex;align-items:center;gap:11px;text-align:left;width:100%;background:transparent;color:var(--ink);padding:0}.emoji{width:46px;height:46px;display:grid;place-items:center;border-radius:15px;background:#ffe4ed;font-size:24px;flex-shrink:0}.tile strong{display:block}.tile small{color:var(--muted);display:block;margin-top:3px;line-height:1.5}.wide{grid-column:1/-1}.btn{padding:10px 14px;border-radius:12px;background:var(--wine);color:white;font-weight:700}.btn.soft{background:#ffe4ed;color:var(--wine)}.btn.line{background:white;color:var(--wine);border:1px solid #f0c6d5}.actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}.letter{white-space:pre-wrap;line-height:1.9;font-size:1rem}.field{width:100%;padding:12px 13px;border:1px solid #efc5d4;border-radius:12px;background:#fffafd;color:var(--ink);outline-color:var(--rose);margin:7px 0}.label{display:block;font-size:.9rem;font-weight:750;margin-top:10px}.hint{font-size:.82rem;color:var(--muted);line-height:1.6}.photo-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-top:12px}.photo{background:#fff;border-radius:14px;padding:7px;box-shadow:0 3px 12px #5b20300f;min-width:0}.photo img{display:block;width:100%;aspect-ratio:1;object-fit:cover;border-radius:10px}.photo audio{width:100%;margin-top:7px}.photo p{font-size:.86rem;margin:7px 2px;overflow-wrap:anywhere}.photo button{font-size:.8rem}.moods{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:12px}.mood{background:#fff0f5;border-radius:14px;padding:11px 4px;color:var(--wine);font-size:.84rem}.mood span{display:block;font-size:25px;margin-bottom:4px}.footer{text-align:center;color:var(--muted);font-size:.8rem;padding:26px 8px 8px;line-height:1.8}.toast{position:fixed;left:50%;bottom:24px;transform:translate(-50%,20px);opacity:0;pointer-events:none;background:#542039;color:white;border-radius:999px;padding:11px 17px;box-shadow:0 8px 24px #40132844;transition:.25s;z-index:100;max-width:90%;text-align:center}.toast.show{opacity:1;transform:translate(-50%,0)}.floating{position:fixed;bottom:-30px;pointer-events:none;z-index:10;animation:floatUp 3.2s ease-in forwards;font-size:22px}@keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.12)}}@keyframes floatUp{to{transform:translateY(-110vh) rotate(30deg);opacity:0}}.hide{display:none!important}dialog{border:0;border-radius:22px;width:min(94%,560px);max-height:88vh;overflow:auto;padding:20px;color:var(--ink);box-shadow:0 20px 70px #42122b40;background:#fff8fb}dialog::backdrop{background:#35102088}.dialog-head{display:flex;align-items:center;justify-content:space-between;gap:10px}.close{background:#ffe4ed;color:var(--wine);border-radius:50%;width:36px;height:36px;font-size:20px;flex-shrink:0}.empty{text-align:center;color:var(--muted);padding:16px 5px}.divider{border:0;border-top:1px solid #f5d7e2;margin:14px 0}
+.chat-card{margin-top:12px;background:rgba(255,255,255,.9);border:1px solid white;border-radius:20px;padding:16px;box-shadow:0 7px 22px #9c315310}.chat-window{height:38vh;min-height:240px;max-height:450px;overflow-y:auto;background:#fff2f7;border-radius:16px;padding:12px;display:flex;flex-direction:column;gap:10px}.chat-bubble{max-width:82%;padding:10px 13px;border-radius:16px;overflow-wrap:anywhere;white-space:pre-wrap;line-height:1.6}.chat-mine{align-self:flex-end;background:#d94f7d;color:white;border-bottom-right-radius:4px}.chat-theirs{align-self:flex-start;background:white;color:#482333;border-bottom-left-radius:4px}.chat-meta{font-size:11px;opacity:.8;margin-top:5px}.chat-compose{display:flex;gap:8px;align-items:flex-end;margin-top:10px}.chat-compose textarea{flex:1;min-width:0;resize:vertical;min-height:45px;max-height:120px;border:1px solid #efc5d4;border-radius:14px;padding:12px;background:#fffafd;color:#482333}.chat-compose button{padding:12px 15px;border-radius:14px;background:#8f234d;color:white;font-weight:bold}.chat-status{font-size:.83rem;color:#886b78;margin:8px 0;line-height:1.6}.status-pill{display:inline-flex;align-items:center;gap:6px;border-radius:999px;padding:6px 10px;background:#fff0f5;color:var(--wine);font-size:.8rem}.dot{width:8px;height:8px;border-radius:50%;background:#9aa0a6;display:inline-block}.dot.on{background:#20a464}.recording{color:#b21f50;font-weight:800}.lock-note{background:#fff0f5;border-radius:12px;padding:10px;font-size:.82rem;line-height:1.6}
 @media(min-width:620px){.grid{grid-template-columns:repeat(3,minmax(0,1fr))}.photo-grid{grid-template-columns:repeat(3,minmax(0,1fr))}.hero{padding:36px 28px}}
 @media(max-width:360px){.app{padding:12px 9px}.card{padding:12px}.grid{gap:8px}.emoji{width:38px;height:38px;font-size:21px}.moods{grid-template-columns:repeat(2,1fr)}}
-/* ❤️ লাইভ চ্যাটের ডিজাইন */
-.chat-card {
-  margin-top: 12px;
-  background: rgba(255,255,255,.9);
-  border: 1px solid white;
-  border-radius: 20px;
-  padding: 16px;
-  box-shadow: 0 7px 22px #9c315310;
-}
-.chat-window {
-  height: 45vh;
-  min-height: 260px;
-  max-height: 480px;
-  overflow-y: auto;
-  background: #fff2f7;
-  border-radius: 16px;
-  padding: 12px;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-.chat-bubble {
-  max-width: 82%;
-  padding: 10px 13px;
-  border-radius: 16px;
-  overflow-wrap: anywhere;
-  white-space: pre-wrap;
-  line-height: 1.6;
-}
-.chat-mine {
-  align-self: flex-end;
-  background: #d94f7d;
-  color: white;
-  border-bottom-right-radius: 4px;
-}
-.chat-theirs {
-  align-self: flex-start;
-  background: white;
-  color: #482333;
-  border-bottom-left-radius: 4px;
-}
-.chat-meta {
-  font-size: 11px;
-  opacity: .8;
-  margin-top: 5px;
-}
-.chat-compose {
-  display: flex;
-  gap: 8px;
-  align-items: flex-end;
-  margin-top: 10px;
-}
-.chat-compose textarea {
-  flex: 1;
-  min-width: 0;
-  resize: vertical;
-  min-height: 45px;
-  max-height: 120px;
-  border: 1px solid #efc5d4;
-  border-radius: 14px;
-  padding: 12px;
-  background: #fffafd;
-  color: #482333;
-}
-.chat-compose button {
-  padding: 12px 15px;
-  border-radius: 14px;
-  background: #8f234d;
-  color: white;
-  font-weight: bold;
-}
-.chat-status {
-  font-size: .83rem;
-  color: #886b78;
-  margin: 8px 0;
-  line-height: 1.6;
-  }
 </style>
 </head>
 <body>
 <div class="app">
-  <header class="top"><div><div class="brand">♡ আমাদের ভালোবাসা</div><div class="tiny">শুধু আমাদের দুজনের ছোট্ট জগৎ</div></div><button class="btn soft" id="settingsBtn" aria-label="সেটিংস">⚙️ সেটিংস</button></header>
-  <section class="hero">
-    <span class="heart">❤️</span>
-    <div class="tiny" style="color:#ffeaf1">আমার প্রিয় মানুষটির জন্য</div>
-    <h1 id="heroTitle">তুমি আমার সবচেয়ে প্রিয় ❤️</h1>
-    <p id="heroText">জীবনের প্রতিটি সাধারণ দিনও তোমার পাশে থাকলে বিশেষ হয়ে ওঠে। তোমাকে ভালোবাসি—আজ, আগামীকাল, প্রতিদিন।</p>
-    <button class="primary" id="loveBtn">💗 এখানে চাপ দাও</button>
-  </section>
-
-  <h2 class="section-title">আমাদের ভালোবাসার কোণা ✨</h2>
-  <section class="grid">
-    <article class="card"><button class="tile" id="letterBtn"><span class="emoji">💌</span><span><strong>ভালোবাসার চিঠি</strong><small>মনের কথা লিখে রাখো</small></span></button></article>
-    <article class="card wide">
-  <button class="tile" id="openChatBtn">
-    <span class="emoji">💬</span>
-    <span>
-      <strong>আমাদের ব্যক্তিগত চ্যাট</strong>
-      <small>তুমি আর আমি—আমাদের মনের কথা ❤️</small>
-    </span>
-  </button>
-    </article>
-    <article class="card"><button class="tile" id="memoryBtn"><span class="emoji">📸</span><span><strong>আমাদের স্মৃতি</strong><small>ছবি আর গল্প জমাও</small></span></button></article>
-    <article class="card"><button class="tile" id="surpriseBtn"><span class="emoji">🎁</span><span><strong>সারপ্রাইজ বক্স</strong><small>একটি মিষ্টি বার্তা</small></span></button></article>
-    <article class="card wide"><div class="tile"><span class="emoji">😊</span><span><strong>আজ তোমার মন কেমন?</strong><small>একটি মুড বেছে নাও—আমি তোমার পাশে আছি।</small></span></div><div class="moods"><button class="mood" data-mood="happy"><span>🥰</span>খুশি</button><button class="mood" data-mood="sad"><span>🥺</span>মন খারাপ</button><button class="mood" data-mood="angry"><span>😔</span>অভিমান</button><button class="mood" data-mood="tired"><span>🤗</span>ক্লান্ত</button></div><p id="moodMessage" class="hint" aria-live="polite">যে অনুভূতিই হোক, একে অপরের কথা মন দিয়ে শুনব। ❤️</p></article>
-    <article class="card wide"><div class="tile"><span class="emoji">🗓️</span><span><strong>আমাদের বিশেষ দিন</strong><small id="specialDateText">একটি স্মরণীয় তারিখ যোগ করো</small></span></div><div class="actions"><button class="btn soft" id="dateBtn">📅 তারিখ যোগ করো</button><button class="btn line" id="daysBtn">💞 কত দিন হলো?</button></div><p id="daysMessage" class="hint"></p></article>
-  </section>
-
-  <h2 class="section-title">আজকের ছোট্ট প্রতিশ্রুতি 🤍</h2>
-  <section class="card"><p class="letter" id="promiseText">আজ আমরা একে অপরের কথা মন দিয়ে শুনব, ভুল হলে ক্ষমা চাইব, আর ছোট্ট একটি মুহূর্ত হলেও একসঙ্গে হাসব।</p><div class="actions"><button class="btn soft" id="promiseBtn">🔄 নতুন প্রতিশ্রুতি</button></div></section>
-  <footer class="footer">তোমার জন্য, আমার প্রিয় মানুষ ❤️<br>ভালোবাসা শুধু কথায় নয়—প্রতিদিনের যত্নেও।<br><span>এই সংস্করণের তথ্য এই ডিভাইসের ব্রাউজারে সংরক্ষিত হয়।</span></footer>
+<header class="top"><div><div class="brand">♡ আমাদের ভালোবাসা</div><div class="tiny">শুধু আমাদের দুজনের ছোট্ট জগৎ</div></div><button class="btn soft" id="settingsBtn">⚙️ সেটিংস</button></header>
+<section class="hero"><span class="heart">❤️</span><div class="tiny" style="color:#ffeaf1">আমার জান মিতু ইসলাম মালিহার জন্য</div><h1 id="heroTitle">তুমি আমার সবচেয়ে প্রিয় ❤️</h1><p id="heroText">জীবনের প্রতিটি সাধারণ দিনও তোমার পাশে থাকলে বিশেষ হয়ে ওঠে। তোমাকে ভালোবাসি—আজ, আগামীকাল, প্রতিদিন।</p><button class="primary" id="loveBtn">💗 এখানে চাপ দাও</button></section>
+<h2 class="section-title">আমাদের ভালোবাসার জগৎ ✨</h2>
+<section class="grid">
+<article class="card"><button class="tile" id="letterBtn"><span class="emoji">💌</span><span><strong>ভালোবাসার চিঠি</strong><small>মনের কথা লিখে রাখো</small></span></button></article>
+<article class="card wide"><button class="tile" id="openChatBtn"><span class="emoji">💬</span><span><strong>আমাদের ব্যক্তিগত চ্যাট</strong><small>তুমি আর আমি—আমাদের মনের কথা ❤️</small></span></button><p class="chat-status" id="homePresence">🌙 অনলাইন স্ট্যাটাস দেখতে চ্যাটে যুক্ত হও।</p></article>
+<article class="card"><button class="tile" id="memoryBtn"><span class="emoji">📸</span><span><strong>আমাদের স্মৃতি</strong><small>দুজনের ফোনে শেয়ার করা ছবি</small></span></button></article>
+<article class="card"><button class="tile" id="voiceBtn"><span class="emoji">🎙️</span><span><strong>ভয়েস মেসেজ</strong><small>কণ্ঠে বলো মনের কথা</small></span></button></article>
+<article class="card"><button class="tile" id="timedLetterBtn"><span class="emoji">💝</span><span><strong>ভবিষ্যতের চিঠি</strong><small>নির্দিষ্ট দিনে খুলবে</small></span></button></article>
+<article class="card"><button class="tile" id="surpriseBtn"><span class="emoji">🎁</span><span><strong>আজকের সারপ্রাইজ</strong><small>দুজনের জন্য একই বার্তা</small></span></button></article>
+<article class="card wide"><div class="tile"><span class="emoji">😊</span><span><strong>আজ তোমার মন কেমন?</strong><small>একটি মুড বেছে নাও—আমি তোমার পাশে আছি।</small></span></div><div class="moods"><button class="mood" data-mood="happy"><span>🥰</span>খুশি</button><button class="mood" data-mood="sad"><span>🥺</span>মন খারাপ</button><button class="mood" data-mood="angry"><span>😔</span>অভিমান</button><button class="mood" data-mood="tired"><span>🤗</span>ক্লান্ত</button></div><p id="moodMessage" class="hint" aria-live="polite">যে অনুভূতিই হোক, একে অপরের কথা মন দিয়ে শুনব। ❤️</p></article>
+<article class="card wide"><div class="tile"><span class="emoji">🗓️</span><span><strong>আমাদের বিশেষ দিন</strong><small id="specialDateText">একটি স্মরণীয় তারিখ যোগ করো</small></span></div><div class="actions"><button class="btn soft" id="dateBtn">📅 তারিখ যোগ করো</button><button class="btn line" id="daysBtn">💞 কত দিন হলো?</button></div><p id="daysMessage" class="hint"></p></article>
+</section>
+<h2 class="section-title">আজকের ছোট্ট প্রতিশ্রুতি 🤍</h2><section class="card"><p class="letter" id="promiseText">আজ আমরা একে অপরের কথা মন দিয়ে শুনব, ভুল হলে ক্ষমা চাইব, আর ছোট্ট একটি মুহূর্ত হলেও একসঙ্গে হাসব।</p><div class="actions"><button class="btn soft" id="promiseBtn">🔄 নতুন প্রতিশ্রুতি</button></div></section>
+<footer class="footer">তোমার জন্য, আমার প্রিয় মানুষ ❤️<br>ভালোবাসা শুধু কথায় নয়—প্রতিদিনের যত্নেও।<br><span>ব্যক্তিগত শেয়ার করা ফিচারের জন্য একই Firebase চ্যাট রুমে যুক্ত থাকো।</span></footer>
 </div>
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
-<dialog id="letterDialog"><div class="dialog-head"><h2>💌 ভালোবাসার চিঠি</h2><button class="close" data-close="letterDialog">×</button></div><p class="hint">মনের কথাগুলো নিজের মতো করে লিখে রাখো।</p><label class="label" for="letterInput">তোমার চিঠি</label><textarea id="letterInput" class="field" rows="7" maxlength="5000" placeholder="প্রিয়তমা, তোমাকে একটা কথা বলতে চাই..."></textarea><div class="actions"><button class="btn" id="saveLetter">চিঠি সংরক্ষণ</button><button class="btn soft" id="resetLetter">উদাহরণ ফিরিয়ে আনো</button></div></dialog>
+<dialog id="letterDialog"><div class="dialog-head"><h2>💌 ভালোবাসার চিঠি</h2><button class="close" data-close="letterDialog">×</button></div><p class="hint">মনের কথাগুলো নিজের মতো করে লিখে রাখো। এই সাধারণ চিঠিটি এই ফোনে সংরক্ষিত হয়।</p><label class="label" for="letterInput">তোমার চিঠি</label><textarea id="letterInput" class="field" rows="7" maxlength="5000" placeholder="প্রিয়তমা, তোমাকে একটা কথা বলতে চাই..."></textarea><div class="actions"><button class="btn" id="saveLetter">চিঠি সংরক্ষণ</button><button class="btn soft" id="resetLetter">উদাহরণ ফিরিয়ে আনো</button></div></dialog>
 
-<dialog id="memoryDialog"><div class="dialog-head"><h2>📸 আমাদের স্মৃতি</h2><button class="close" data-close="memoryDialog">×</button></div><p class="hint">ছবি নির্বাচন করে একটি নাম বা স্মৃতির কথা যোগ করো। ছবিগুলো এই ডিভাইসেই সংরক্ষণের চেষ্টা করা হবে।</p><label class="label" for="photoInput">ছবি নির্বাচন</label><input class="field" id="photoInput" type="file" accept="image/*" multiple><label class="label" for="photoCaption">স্মৃতির নাম</label><input class="field" id="photoCaption" maxlength="100" placeholder="যেমন: আমাদের সুন্দর দিন"><div id="photoGrid" class="photo-grid"></div><div class="actions"><button class="btn soft" id="clearPhotos">সব ছবি মুছুন</button></div></dialog>
+<dialog id="memoryDialog"><div class="dialog-head"><h2>📸 আমাদের শেয়ার করা স্মৃতি</h2><button class="close" data-close="memoryDialog">×</button></div><p class="hint">ছবি যোগ করতে আগে চ্যাট রুম তৈরি/যোগ দাও। ছবিগুলো ছোট করে Firebase Realtime Database-এ রাখা হবে, যাতে দুজনই দেখতে পারো।</p><label class="label" for="cloudPhotoInput">ছবি নির্বাচন</label><input class="field" id="cloudPhotoInput" type="file" accept="image/*"><label class="label" for="cloudPhotoCaption">স্মৃতির নাম</label><input class="field" id="cloudPhotoCaption" maxlength="100" placeholder="যেমন: আমাদের সুন্দর দিন"><button class="btn" id="uploadPhotoBtn">📤 স্মৃতি শেয়ার করো</button><p class="chat-status" id="photoStatus"></p><div id="photoGrid" class="photo-grid"></div></dialog>
 
-<dialog id="surpriseDialog"><div class="dialog-head"><h2>🎁 তোমার জন্য সারপ্রাইজ</h2><button class="close" data-close="surpriseDialog">×</button></div><div style="text-align:center;padding:12px 4px"><div style="font-size:55px">💝</div><p class="letter" id="surpriseText">তোমার হাসিটাই আমার দিনের সবচেয়ে সুন্দর উপহার।</p><button class="btn" id="anotherSurprise">আরেকটি সারপ্রাইজ ✨</button></div></dialog>
+<dialog id="voiceDialog"><div class="dialog-head"><h2>🎙️ আমাদের ভয়েস মেসেজ</h2><button class="close" data-close="voiceDialog">×</button></div><p class="hint">রেকর্ডিংয়ের জন্য মাইক্রোফোন অনুমতি দিতে হবে। সর্বোচ্চ ১৫ সেকেন্ডের ছোট বার্তা রেকর্ড হবে। একই রুমে দুজন শুনতে পারবে।</p><div class="actions"><button class="btn" id="recordVoiceBtn">🔴 রেকর্ড শুরু</button><button class="btn soft" id="stopVoiceBtn" disabled>⏹️ রেকর্ড বন্ধ</button></div><p id="voiceStatus" class="chat-status">রেকর্ড করতে প্রস্তুত।</p><audio id="voicePreview" controls class="hide" style="width:100%;margin-top:8px"></audio><button class="btn" id="sendVoiceBtn" disabled>💌 ভয়েস পাঠাও</button><hr class="divider"><div id="voiceList"></div></dialog>
 
-<dialog id="settingsDialog"><div class="dialog-head"><h2>⚙️ আমাদের সেটিংস</h2><button class="close" data-close="settingsDialog">×</button></div><p class="hint">নামগুলো নিজের মতো করে বদলে নাও।</p><label class="label" for="yourName">তোমার নাম</label><input class="field" id="yourName" maxlength="50" placeholder="তোমার নাম"><label class="label" for="partnerName">তোমার স্ত্রীর নাম</label><input class="field" id="partnerName" maxlength="50" placeholder="তার নাম"><label class="label" for="anniversary">বিশেষ তারিখ (ঐচ্ছিক)</label><input class="field" id="anniversary" type="date"><div class="actions"><button class="btn" id="saveSettings">সংরক্ষণ</button><button class="btn soft" id="exportBtn">💾 ব্যাকআপ ডাউনলোড</button></div><hr class="divider"><p class="hint">ব্যাকআপ ফাইল তোমার চিঠি ও সেটিংসসহ সংরক্ষণে সাহায্য করবে। ছবি ব্রাউজারের স্টোরেজ সীমার কারণে ব্যাকআপ ফাইলে অন্তর্ভুক্ত নয়।</p><label class="label" for="importInput">ব্যাকআপ ফিরিয়ে আনো</label><input class="field" id="importInput" type="file" accept="application/json"><button class="btn line" id="resetAll">সব লেখা ও সেটিংস রিসেট</button></dialog>
+<dialog id="timedLetterDialog"><div class="dialog-head"><h2>💌 ভবিষ্যতের ভালোবাসার চিঠি</h2><button class="close" data-close="timedLetterDialog">×</button></div><p class="hint">একটি চিঠি লিখে খোলার তারিখ ঠিক করো। মনে রেখো: এটি অ্যাপের স্ক্রিনে তারিখের আগে লুকানো থাকবে, কিন্তু রুমের সদস্যরা প্রযুক্তিগতভাবে ডেটা দেখতে পারলে চিঠি পড়তে পারে।</p><label class="label" for="timedLetterTitle">চিঠির শিরোনাম</label><input class="field" id="timedLetterTitle" maxlength="80" placeholder="যেমন: আমাদের প্রথম বার্ষিকীতে"><label class="label" for="timedLetterText">চিঠির লেখা</label><textarea class="field" id="timedLetterText" rows="5" maxlength="3000" placeholder="তোমার প্রিয় মানুষটির জন্য..."></textarea><label class="label" for="timedLetterDate">কোন দিনে খুলবে?</label><input class="field" id="timedLetterDate" type="date"><button class="btn" id="saveTimedLetterBtn">🔒 চিঠি সংরক্ষণ</button><p id="timedLetterStatus" class="chat-status"></p><hr class="divider"><div id="timedLetterList"></div></dialog>
 
+<dialog id="surpriseDialog"><div class="dialog-head"><h2>🎁 আজকের সারপ্রাইজ</h2><button class="close" data-close="surpriseDialog">×</button></div><div style="text-align:center;padding:12px 4px"><div style="font-size:55px">💝</div><p class="letter" id="surpriseText">তোমার হাসিটাই আমার দিনের সবচেয়ে সুন্দর উপহার।</p><p class="hint" id="surpriseDateText"></p><button class="btn" id="anotherSurprise">আজকের বার্তা আবার দেখো ✨</button></div></dialog>
+
+<dialog id="settingsDialog"><div class="dialog-head"><h2>⚙️ আমাদের সেটিংস</h2><button class="close" data-close="settingsDialog">×</button></div><p class="hint">নামগুলো নিজের মতো করে বদলে নাও।</p><label class="label" for="yourName">তোমার নাম</label><input class="field" id="yourName" maxlength="50" placeholder="তোমার নাম"><label class="label" for="partnerName">তোমার সঙ্গীর নাম</label><input class="field" id="partnerName" maxlength="50" placeholder="তার নাম"><label class="label" for="anniversary">বিশেষ তারিখ (ঐচ্ছিক)</label><input class="field" id="anniversary" type="date"><div class="actions"><button class="btn" id="saveSettings">সংরক্ষণ</button><button class="btn soft" id="exportBtn">💾 ব্যাকআপ ডাউনলোড</button></div><hr class="divider"><p class="hint">ব্যাকআপে এই ফোনের চিঠি ও সেটিংস থাকবে; শেয়ার করা ছবি/অডিও Firebase-এ থাকে।</p><label class="label" for="importInput">ব্যাকআপ ফিরিয়ে আনো</label><input class="field" id="importInput" type="file" accept="application/json"><button class="btn line" id="resetAll">এই ফোনের লেখা ও সেটিংস রিসেট</button></dialog>
 <dialog id="daysDialog"><div class="dialog-head"><h2>💞 আমাদের পথচলা</h2><button class="close" data-close="daysDialog">×</button></div><p id="daysDetail" class="letter"></p></dialog>
-<script>
-'use strict';
-const KEY='amader_bhalobasha_v1';
-const defaultLetter='প্রিয়তমা,\n\nতোমাকে জীবনে পেয়ে আমি কৃতজ্ঞ। সব দিন একরকম যাবে না, তবু আমি চাই—সুখে-দুঃখে আমরা একে অপরের পাশে থাকি। তোমার হাসি, তোমার কথা আর তোমার ছোট ছোট অভিমানও আমার কাছে মূল্যবান।\n\nভুল হলে আমাকে বুঝিয়ে দিও, আমিও তোমার কথা মন দিয়ে শুনব। প্রতিদিন নতুন করে তোমাকে ভালোবাসতে চাই।\n\nইতি, তোমার মানুষ ❤️';
-const surprises=['তোমার হাসিটাই আমার দিনের সবচেয়ে সুন্দর উপহার। ❤️','আজ তোমাকে একটা শক্ত করে জড়িয়ে ধরতে ইচ্ছে করছে। 🤗','তুমি শুধু আমার জীবনসঙ্গী নও, তুমি আমার আপন মানুষ। 💗','মন খারাপ হলে মনে রেখো—তোমার কথা শোনার জন্য আমি আছি।','আজ তোমাকে একটি কথা বলতেই হয়: তোমাকে পেয়ে আমি ভাগ্যবান। 🌷','চলো আজ একটু সময় শুধু আমাদের জন্য রাখি। ☕','তোমার ছোট্ট হাসিটাও আমার কাছে অনেক বড় সুখ। 💞','কোনো বড় উপহার নয়—তোমার সঙ্গে শান্তিতে কাটানো সময়টাই চাই।'];
-const promises=['আজ আমরা একে অপরের কথা মন দিয়ে শুনব। ❤️','আজ ব্যস্ততার মাঝেও একে অপরকে একটু সময় দেব।','ভুল হলে জেদ না করে কথা বলে সমাধান খুঁজব।','আজ অন্তত একবার মন খুলে একসঙ্গে হাসব। 😊','আজ একে অপরকে ধন্যবাদ জানাব—ছোট ছোট যত্নের জন্য।','আজ রাগ হলে একটু থামব, তারপর শান্তভাবে কথা বলব।'];
-const moodText={happy:'তোমার খুশি আমারও খুশি। চলো এই সুন্দর মুহূর্তটা একসঙ্গে উপভোগ করি। 🥰',sad:'তোমাকে এখনই সব ঠিক করতে হবে না। চাইলে আমি তোমার কথা শুনব—তুমি একা নও। 🤍',angry:'তোমার অভিমানও গুরুত্বপূর্ণ। আগে তোমার কথা শুনি, তারপর শান্তভাবে সমাধান খুঁজি। 🌷',tired:'একটু বিশ্রাম নাও, পানি খাও। সবকিছু একা সামলাতে হবে না—আমি পাশে আছি। 🤗'};
-let state={yourName:'আমার মানুষ',partnerName:'প্রিয়তমা',anniversary:'',letter:defaultLetter,photos:[]};
-const $=id=>document.getElementById(id);
-function load(){try{const saved=JSON.parse(localStorage.getItem(KEY)||'null');if(saved&&typeof saved==='object')state={...state,...saved};}catch(e){toast('আগের সংরক্ষিত তথ্য পড়া যায়নি।');}render();}
-function persist(){try{localStorage.setItem(KEY,JSON.stringify(state));return true;}catch(e){toast('স্টোরেজ পূর্ণ হতে পারে। কিছু ছবি মুছে আবার চেষ্টা করো।');return false;}}
-function toast(msg){const el=$('toast');el.textContent=msg;el.classList.add('show');clearTimeout(toast.timer);toast.timer=setTimeout(()=>el.classList.remove('show'),2600);}
-function openDialog(id){$(id).showModal();}
-function render(){ $('heroTitle').textContent=`${state.partnerName||'প্রিয়তমা'}, তুমি আমার সবচেয়ে প্রিয় ❤️`; $('letterInput').value=state.letter||defaultLetter; $('yourName').value=state.yourName||''; $('partnerName').value=state.partnerName||''; $('anniversary').value=state.anniversary||''; $('specialDateText').textContent=state.anniversary?`আমাদের বিশেষ দিন: ${state.anniversary}`:'একটি স্মরণীয় তারিখ যোগ করো'; renderPhotos(); }
-function hearts(){for(let i=0;i<16;i++){const h=document.createElement('span');h.className='floating';h.textContent=['💗','💕','💖','❤️','🌸'][Math.floor(Math.random()*5)];h.style.left=Math.random()*94+'vw';h.style.animationDelay=(Math.random()*.9)+'s';h.style.fontSize=(17+Math.random()*18)+'px';document.body.appendChild(h);setTimeout(()=>h.remove(),4200);}}
-function newSurprise(){ $('surpriseText').textContent=surprises[Math.floor(Math.random()*surprises.length)];}
-function renderPhotos(){const grid=$('photoGrid');grid.replaceChildren();if(!state.photos.length){const p=document.createElement('p');p.className='empty';p.textContent='এখনো কোনো ছবি যোগ করা হয়নি। তোমাদের প্রিয় স্মৃতি এখানে রাখো।';grid.appendChild(p);return;}state.photos.forEach((item,index)=>{const card=document.createElement('div');card.className='photo';const img=document.createElement('img');img.src=item.data;img.alt=item.caption||'আমাদের স্মৃতি';const p=document.createElement('p');p.textContent=item.caption||'আমাদের সুন্দর স্মৃতি';const del=document.createElement('button');del.className='btn soft';del.textContent='মুছে ফেলো';del.addEventListener('click',()=>{if(confirm('এই ছবিটি মুছে ফেলবে?')){state.photos.splice(index,1);persist();renderPhotos();}});card.append(img,p,del);grid.appendChild(card);});}
-$('loveBtn').addEventListener('click',()=>{hearts();toast(`${state.partnerName||'প্রিয়তমা'}, তোমাকে অনেক ভালোবাসি! ❤️`);});
-$('letterBtn').addEventListener('click',()=>openDialog('letterDialog'));
-$('saveLetter').addEventListener('click',()=>{state.letter=$('letterInput').value;persist();toast('তোমার চিঠি সংরক্ষণ করা হয়েছে 💌');$('letterDialog').close();});
-$('resetLetter').addEventListener('click',()=>{$('letterInput').value=defaultLetter;toast('উদাহরণ চিঠি ফিরিয়ে আনা হয়েছে।');});
-$('memoryBtn').addEventListener('click',()=>openDialog('memoryDialog'));
-$('photoInput').addEventListener('change',async e=>{const files=[...e.target.files];if(!files.length)return;const caption=$('photoCaption').value.trim();for(let i=0;i<files.length;i++){const file=files[i];if(!file.type.startsWith('image/'))continue;if(file.size>1.5*1024*1024){toast('প্রতি ছবি ১.৫ MB-এর কম রাখো। বড় ছবি ছোট করে আবার যোগ করো।');continue;}try{const data=await new Promise((resolve,reject)=>{const reader=new FileReader();reader.onload=()=>resolve(reader.result);reader.onerror=reject;reader.readAsDataURL(file);});state.photos.push({data,caption:caption||(file.name.replace(/\.[^.]+$/,'')||'আমাদের স্মৃতি')});}catch(err){toast('একটি ছবি পড়া যায়নি।');}}persist();renderPhotos();e.target.value='';toast('ছবি যোগ করা হয়েছে 📸');});
-$('clearPhotos').addEventListener('click',()=>{if(confirm('সব স্মৃতির ছবি মুছে ফেলবে?')){state.photos=[];persist();renderPhotos();toast('ছবিগুলো মুছে ফেলা হয়েছে।');}});
-$('surpriseBtn').addEventListener('click',()=>{newSurprise();openDialog('surpriseDialog');});$('anotherSurprise').addEventListener('click',newSurprise);
-document.querySelectorAll('[data-mood]').forEach(btn=>btn.addEventListener('click',()=>{$('moodMessage').textContent=moodText[btn.dataset.mood];toast('তোমার অনুভূতিটা গুরুত্বপূর্ণ ❤️');}));
-$('promiseBtn').addEventListener('click',()=>{$('promiseText').textContent=promises[Math.floor(Math.random()*promises.length)];});
-$('dateBtn').addEventListener('click',()=>openDialog('settingsDialog'));
-$('daysBtn').addEventListener('click',()=>{if(!state.anniversary){toast('আগে সেটিংস থেকে বিশেষ দিনের তারিখ যোগ করো।');openDialog('settingsDialog');return;}const start=new Date(state.anniversary+'T00:00:00');const today=new Date();today.setHours(0,0,0,0);const diff=Math.floor((today-start)/86400000);if(Number.isNaN(diff)||diff<0){$('daysDetail').textContent='তারিখটি যাচাই করো—এটি ভবিষ্যতের তারিখ হতে পারে।';}else{$('daysDetail').textContent=`${state.anniversary} থেকে আজ পর্যন্ত ${diff} দিন পেরিয়েছে।\n\nপ্রতিটি দিনই আমাদের গল্পের একটি নতুন পাতা। আরও অনেক সুন্দর দিন একসঙ্গে কাটুক। ❤️`;}openDialog('daysDialog');});
-$('settingsBtn').addEventListener('click',()=>openDialog('settingsDialog'));
-$('saveSettings').addEventListener('click',()=>{state.yourName=$('yourName').value.trim()||'আমার মানুষ';state.partnerName=$('partnerName').value.trim()||'প্রিয়তমা';state.anniversary=$('anniversary').value;persist();render();toast('সেটিংস সংরক্ষণ করা হয়েছে ❤️');$('settingsDialog').close();});
-$('exportBtn').addEventListener('click',()=>{const backup={...state,photos:[]};const blob=new Blob([JSON.stringify(backup,null,2)],{type:'application/json'});const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download='amader-bhalobasha-backup.json';a.click();URL.revokeObjectURL(url);toast('ব্যাকআপ ডাউনলোড শুরু হয়েছে।');});
-$('importInput').addEventListener('change',async e=>{const file=e.target.files[0];if(!file)return;try{const incoming=JSON.parse(await file.text());if(!incoming||typeof incoming!=='object'||typeof incoming.letter!=='string')throw Error('invalid');state={...state,...incoming,photos:state.photos};persist();render();toast('ব্যাকআপ ফিরিয়ে আনা হয়েছে।');}catch(err){toast('এই ব্যাকআপ ফাইলটি পড়া যাচ্ছে না।');}e.target.value='';});
-$('resetAll').addEventListener('click',()=>{if(confirm('নাম, চিঠি ও তারিখসহ সব তথ্য রিসেট করবে? ছবিও মুছে যাবে।')){localStorage.removeItem(KEY);state={yourName:'আমার মানুষ',partnerName:'প্রিয়তমা',anniversary:'',letter:defaultLetter,photos:[]};render();toast('অ্যাপের তথ্য রিসেট হয়েছে।');}});
-document.querySelectorAll('[data-close]').forEach(btn=>btn.addEventListener('click',()=>$(btn.dataset.close).close()));
-load();
-</script>
-  <dialog id="chatDialog">
-  <div class="dialog-head">
-    <h2>💗 আমাদের চ্যাট</h2>
-    <button class="close" id="closeChatBtn">×</button>
-  </div>
 
-  <div id="chatSetup">
-    <p class="hint">
-      দুজন একই গোপন কোড ব্যবহার করে ব্যক্তিগত চ্যাটে যুক্ত হও।
-    </p>
+<dialog id="chatDialog"><div class="dialog-head"><h2>💗 আমাদের চ্যাট</h2><button class="close" id="closeChatBtn">×</button></div><div id="chatSetup"><p class="hint">দুজন একই গোপন কোড ব্যবহার করে ব্যক্তিগত চ্যাটে যুক্ত হও।</p><label class="label" for="chatName">এই ফোনে তোমার নাম</label><input id="chatName" class="field" maxlength="40" placeholder="যেমন: হৃদয়"><button id="createRoomBtn" class="btn">💞 নতুন চ্যাট তৈরি করো</button><hr class="divider"><label class="label" for="joinCode">সঙ্গীর দেওয়া গোপন কোড</label><input id="joinCode" class="field" maxlength="12" placeholder="১২ অক্ষরের কোড" autocomplete="off"><button id="joinRoomBtn" class="btn soft">🔗 কোড দিয়ে যুক্ত হও</button><p id="chatSetupStatus" class="chat-status" aria-live="polite"></p></div><div id="chatArea" class="hide"><p class="chat-status" id="roomStatus"></p><p class="status-pill"><span id="partnerDot" class="dot"></span><span id="partnerPresence">সঙ্গীর স্ট্যাটাস যাচাই হচ্ছে…</span></p><div class="actions"><button id="copyRoomCodeBtn" class="btn soft">📋 কোড দেখাও</button><button id="leaveRoomBtn" class="btn line">রুম থেকে বের হও</button></div><div id="chatMessages" class="chat-window" aria-live="polite" aria-label="চ্যাটের মেসেজ"></div><form id="chatForm" class="chat-compose"><textarea id="chatInput" maxlength="1000" placeholder="মনের কথা লিখো ❤️" aria-label="মেসেজ লিখুন" required></textarea><button id="sendChatBtn" type="submit">পাঠাও ➤</button></form><p class="chat-status">ইন্টারনেট সংযোগ থাকলে নতুন মেসেজ স্বয়ংক্রিয়ভাবে দেখা যাবে।</p></div></dialog>
 
-    <label class="label" for="chatName">এই ফোনে তোমার নাম</label>
-    <input id="chatName" class="field" maxlength="40"
-           placeholder="যেমন: হৃদয়">
-
-    <button id="createRoomBtn" class="btn">
-      💞 নতুন চ্যাট তৈরি করো
-    </button>
-
-    <hr class="divider">
-
-    <label class="label" for="joinCode">
-      স্ত্রীর দেওয়া গোপন কোড
-    </label>
-    <input id="joinCode" class="field" maxlength="12"
-           placeholder="১২ অক্ষরের কোড" autocomplete="off">
-
-    <button id="joinRoomBtn" class="btn soft">
-      🔗 কোড দিয়ে যুক্ত হও
-    </button>
-
-    <p id="chatSetupStatus" class="chat-status" aria-live="polite"></p>
-  </div>
-
-  <div id="chatArea" class="hide">
-    <p class="chat-status" id="roomStatus"></p>
-
-    <div class="actions">
-      <button id="copyRoomCodeBtn" class="btn soft">
-        📋 কোড দেখাও
-      </button>
-      <button id="leaveRoomBtn" class="btn line">
-        লগআউট
-      </button>
-    </div>
-
-    <div id="chatMessages" class="chat-window"
-         aria-live="polite" aria-label="চ্যাটের মেসেজ"></div>
-
-    <form id="chatForm" class="chat-compose">
-      <textarea id="chatInput" maxlength="1000"
-                placeholder="মনের কথা লিখো ❤️"
-                aria-label="মেসেজ লিখুন" required></textarea>
-      <button id="sendChatBtn" type="submit">পাঠাও ➤</button>
-    </form>
-    <p class="chat-status">
-      ইন্টারনেট সংযোগ থাকলে নতুন মেসেজ স্বয়ংক্রিয়ভাবে দেখা যাবে।
-    </p>
-  </div>
-  </dialog>
-  <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-auth-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-database-compat.js"></script>
 <script>
@@ -245,274 +63,92 @@ const firebaseConfig = {
   appId: "1:192075618706:web:ae76e6d5a26bdd1f36094b",
   measurementId: "G-7EH1P86QG8"
 };
-
-if (!firebase.apps.length) {
-  firebase.initializeApp(firebaseConfig);
-}
+if (!firebase.apps.length) firebase.initializeApp(firebaseConfig);
 </script>
-  <script>
+<script>
+'use strict';
+const KEY='amader_bhalobasha_v1';
+const defaultLetter='প্রিয়তমা,\n\nতোমাকে জীবনে পেয়ে আমি কৃতজ্ঞ। সব দিন একরকম যাবে না, তবু আমি চাই—সুখে-দুঃখে আমরা একে অপরের পাশে থাকি। তোমার হাসি, তোমার কথা আর তোমার ছোট ছোট অভিমানও আমার কাছে মূল্যবান।\n\nভুল হলে আমাকে বুঝিয়ে দিও, আমিও তোমার কথা মন দিয়ে শুনব। প্রতিদিন নতুন করে তোমাকে ভালোবাসতে চাই।\n\nইতি, তোমার মানুষ ❤️';
+const surprises=['তোমার হাসিটাই আমার দিনের সবচেয়ে সুন্দর উপহার। ❤️','আজ তোমাকে একটা শক্ত করে জড়িয়ে ধরতে ইচ্ছে করছে। 🤗','তুমি শুধু আমার জীবনসঙ্গী নও, তুমি আমার আপন মানুষ। 💗','মন খারাপ হলে মনে রেখো—তোমার কথা শোনার জন্য আমি আছি।','আজ তোমাকে একটি কথা বলতেই হয়: তোমাকে পেয়ে আমি ভাগ্যবান। 🌷','চলো আজ একটু সময় শুধু আমাদের জন্য রাখি। ☕','তোমার ছোট্ট হাসিটাও আমার কাছে অনেক বড় সুখ। 💞','কোনো বড় উপহার নয়—তোমার সঙ্গে শান্তিতে কাটানো সময়টাই চাই।'];
+const promises=['আজ আমরা একে অপরের কথা মন দিয়ে শুনব। ❤️','আজ ব্যস্ততার মাঝেও একে অপরকে একটু সময় দেব।','ভুল হলে জেদ না করে কথা বলে সমাধান খুঁজব।','আজ অন্তত একবার মন খুলে একসঙ্গে হাসব। 😊','আজ একে অপরকে ধন্যবাদ জানাব—ছোট ছোট যত্নের জন্য।','আজ রাগ হলে একটু থামব, তারপর শান্তভাবে কথা বলব।'];
+const moodText={happy:'তোমার খুশি আমারও খুশি। চলো এই সুন্দর মুহূর্তটা একসঙ্গে উপভোগ করি। 🥰',sad:'তোমাকে এখনই সব ঠিক করতে হবে না। চাইলে আমি তোমার কথা শুনব—তুমি একা নও। 🤍',angry:'তোমার অভিমানও গুরুত্বপূর্ণ। আগে তোমার কথা শুনি, তারপর শান্তভাবে সমাধান খুঁজি। 🌷',tired:'একটু বিশ্রাম নাও, পানি খাও। সবকিছু একা সামলাতে হবে না—আমি পাশে আছি। 🤗'};
+let state={yourName:'আমার মানুষ',partnerName:'প্রিয়তমা',anniversary:'',letter:defaultLetter,photos:[]};
+const $=id=>document.getElementById(id);
+function toast(msg){const el=$('toast');el.textContent=msg;el.classList.add('show');clearTimeout(toast.timer);toast.timer=setTimeout(()=>el.classList.remove('show'),2600);}
+function openDialog(id){$(id).showModal();}
+function load(){try{const saved=JSON.parse(localStorage.getItem(KEY)||'null');if(saved&&typeof saved==='object')state={...state,...saved};}catch(e){toast('আগের সংরক্ষিত তথ্য পড়া যায়নি।');}render();}
+function persist(){try{localStorage.setItem(KEY,JSON.stringify(state));return true;}catch(e){toast('স্টোরেজ পূর্ণ হতে পারে।');return false;}}
+function render(){ $('heroTitle').textContent=`${state.partnerName||'প্রিয়তমা'}, তুমি আমার সবচেয়ে প্রিয় ❤️`; $('letterInput').value=state.letter||defaultLetter; $('yourName').value=state.yourName||''; $('partnerName').value=state.partnerName||''; $('anniversary').value=state.anniversary||''; $('specialDateText').textContent=state.anniversary?`আমাদের বিশেষ দিন: ${state.anniversary}`:'একটি স্মরণীয় তারিখ যোগ করো'; }
+function hearts(){for(let i=0;i<16;i++){const h=document.createElement('span');h.className='floating';h.textContent=['💗','💕','💖','❤️','🌸'][Math.floor(Math.random()*5)];h.style.left=Math.random()*94+'vw';h.style.animationDelay=(Math.random()*.9)+'s';h.style.fontSize=(17+Math.random()*18)+'px';document.body.appendChild(h);setTimeout(()=>h.remove(),4200);}}
+function dailySurprise(){const day=new Date().toLocaleDateString('en-CA');let hash=0;for(const c of day)hash=(hash*31+c.charCodeAt(0))>>>0;const index=hash%surprises.length;$('surpriseText').textContent=surprises[index];$('surpriseDateText').textContent='আজকের বার্তা · '+day;}
+$('loveBtn').addEventListener('click',()=>{hearts();toast(`${state.partnerName||'প্রিয়তমা'}, তোমাকে অনেক ভালোবাসি! ❤️`);});
+$('letterBtn').addEventListener('click',()=>openDialog('letterDialog'));
+$('saveLetter').addEventListener('click',()=>{state.letter=$('letterInput').value;persist();toast('তোমার চিঠি এই ফোনে সংরক্ষণ করা হয়েছে 💌');$('letterDialog').close();});
+$('resetLetter').addEventListener('click',()=>{$('letterInput').value=defaultLetter;toast('উদাহরণ চিঠি ফিরিয়ে আনা হয়েছে।');});
+$('memoryBtn').addEventListener('click',()=>{openDialog('memoryDialog');loadCloudPhotos();});
+$('voiceBtn').addEventListener('click',()=>{openDialog('voiceDialog');loadVoices();});
+$('timedLetterBtn').addEventListener('click',()=>{openDialog('timedLetterDialog');loadTimedLetters();});
+$('surpriseBtn').addEventListener('click',()=>{dailySurprise();openDialog('surpriseDialog');});
+$('anotherSurprise').addEventListener('click',()=>{dailySurprise();toast('আজকের সারপ্রাইজ দুজনের জন্য একই ❤️');});
+document.querySelectorAll('[data-mood]').forEach(btn=>btn.addEventListener('click',()=>{$('moodMessage').textContent=moodText[btn.dataset.mood];toast('তোমার অনুভূতিটা গুরুত্বপূর্ণ ❤️');}));
+$('promiseBtn').addEventListener('click',()=>{$('promiseText').textContent=promises[Math.floor(Math.random()*promises.length)];});
+$('dateBtn').addEventListener('click',()=>openDialog('settingsDialog'));
+$('daysBtn').addEventListener('click',()=>{if(!state.anniversary){toast('আগে সেটিংস থেকে বিশেষ দিনের তারিখ যোগ করো।');openDialog('settingsDialog');return;}const start=new Date(state.anniversary+'T00:00:00');const today=new Date();today.setHours(0,0,0,0);const diff=Math.floor((today-start)/86400000);$('daysDetail').textContent=Number.isNaN(diff)||diff<0?'তারিখটি যাচাই করো—এটি ভবিষ্যতের তারিখ হতে পারে।':`${state.anniversary} থেকে আজ পর্যন্ত ${diff} দিন পেরিয়েছে।\n\nপ্রতিটি দিনই আমাদের গল্পের একটি নতুন পাতা। আরও অনেক সুন্দর দিন একসঙ্গে কাটুক। ❤️`;openDialog('daysDialog');});
+$('settingsBtn').addEventListener('click',()=>openDialog('settingsDialog'));
+$('saveSettings').addEventListener('click',()=>{state.yourName=$('yourName').value.trim()||'আমার মানুষ';state.partnerName=$('partnerName').value.trim()||'প্রিয়তমা';state.anniversary=$('anniversary').value;persist();render();toast('সেটিংস সংরক্ষণ করা হয়েছে ❤️');$('settingsDialog').close();});
+$('exportBtn').addEventListener('click',()=>{const backup={...state,photos:[]};const blob=new Blob([JSON.stringify(backup,null,2)],{type:'application/json'});const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download='amader-bhalobasha-backup.json';a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);toast('ব্যাকআপ ডাউনলোড শুরু হয়েছে।');});
+$('importInput').addEventListener('change',async e=>{const file=e.target.files[0];if(!file)return;try{const incoming=JSON.parse(await file.text());if(!incoming||typeof incoming!=='object'||typeof incoming.letter!=='string')throw Error('invalid');state={...state,...incoming,photos:state.photos};persist();render();toast('ব্যাকআপ ফিরিয়ে আনা হয়েছে।');}catch(err){toast('এই ব্যাকআপ ফাইলটি পড়া যাচ্ছে না।');}e.target.value='';});
+$('resetAll').addEventListener('click',()=>{if(confirm('নাম, চিঠি ও তারিখসহ এই ফোনের সব তথ্য রিসেট করবে?')){localStorage.removeItem(KEY);state={yourName:'আমার মানুষ',partnerName:'প্রিয়তমা',anniversary:'',letter:defaultLetter,photos:[]};render();toast('এই ফোনের তথ্য রিসেট হয়েছে।');}});
+document.querySelectorAll('[data-close]').forEach(btn=>btn.addEventListener('click',()=>$(btn.dataset.close).close()));
+load();
+
+/* Firebase shared chat + album + voice + timed letters + presence */
 (() => {
-  const $ = id => document.getElementById(id);
-
-  const auth = firebase.auth();
-  const db = firebase.database();
-
-  let currentUser = null;
-  let currentRoom = "";
-  let messageListener = null;
-
-  const savedRoomKey = "amader_bhalobasha_chat_room";
-
-  function status(message) {
-    $("chatSetupStatus").textContent = message;
-  }
-
-  async function signIn() {
-    if (auth.currentUser) {
-      currentUser = auth.currentUser;
-      return currentUser;
-    }
-
-    const result = await auth.signInAnonymously();
-    currentUser = result.user;
-    return currentUser;
-  }
-
-  function makeRoomCode() {
-    const chars = "ABCDEFGHJKLMNPQRSTUVWXYZ23456789";
-    const bytes = new Uint8Array(12);
-    crypto.getRandomValues(bytes);
-    return Array.from(bytes, b => chars[b % chars.length]).join("");
-  }
-
-  function showSetup() {
-    $("chatSetup").classList.remove("hide");
-    $("chatArea").classList.add("hide");
-  }
-
-  function showChat(room) {
-    currentRoom = room;
-    localStorage.setItem(savedRoomKey, room);
-
-    $("chatSetup").classList.add("hide");
-    $("chatArea").classList.remove("hide");
-    $("roomStatus").textContent = "আমাদের গোপন কোড: " + room;
-
-    if (messageListener) {
-      db.ref("messages/" + currentRoom)
-        .off("value", messageListener);
-    }
-
-    const messagesRef = db.ref("messages/" + room);
-
-    messageListener = snapshot => {
-      const box = $("chatMessages");
-      box.replaceChildren();
-
-      snapshot.forEach(child => {
-        const msg = child.val();
-        if (!msg || typeof msg.text !== "string") return;
-
-        const bubble = document.createElement("div");
-        bubble.className = "chat-bubble " +
-          (msg.uid === currentUser.uid
-            ? "chat-mine"
-            : "chat-theirs");
-
-        const text = document.createElement("div");
-        text.textContent = msg.text;
-
-        const meta = document.createElement("div");
-        meta.className = "chat-meta";
-        const time = msg.time
-          ? new Date(msg.time).toLocaleString("bn-BD", {
-              hour: "2-digit",
-              minute: "2-digit"
-            })
-          : "এখন";
-
-        meta.textContent = (msg.name || "প্রিয় মানুষ") + " · " + time;
-        bubble.append(text, meta);
-        box.appendChild(bubble);
-      });
-
-      box.scrollTop = box.scrollHeight;
-    };
-
-    messagesRef.limitToLast(100).on("value", messageListener);
-  }
-
-  async function createRoom() {
-    try {
-      $("createRoomBtn").disabled = true;
-      status("নিরাপদ সংযোগ তৈরি হচ্ছে...");
-
-      await signIn();
-
-      const room = makeRoomCode();
-      const name = $("chatName").value.trim() || "আমার মানুষ";
-
-      await db.ref("roomMeta/" + room).set({
-        createdBy: currentUser.uid,
-        createdAt: firebase.database.ServerValue.TIMESTAMP
-      });
-
-      await db.ref("members/" + room + "/" + currentUser.uid)
-        .set(true);
-
-      localStorage.setItem("amader_bhalobasha_chat_name", name);
-      showChat(room);
-
-      $("roomStatus").textContent =
-        "কোডটি তোমার সঙ্গীকে দাও: " + room;
-      alert("তোমাদের গোপন চ্যাট কোড: " + room +
-        "\nকোডটি তোমার সঙ্গীর সঙ্গে শেয়ার করো।");
-    } catch (error) {
-      console.error(error);
-      status("চ্যাট তৈরি হয়নি। Firebase Database Rules ও সংযোগ পরীক্ষা করো।");
-    } finally {
-      $("createRoomBtn").disabled = false;
-    }
-  }
-
-  async function joinRoom() {
-    try {
-      $("joinRoomBtn").disabled = true;
-      status("কোড যাচাই করা হচ্ছে...");
-
-      await signIn();
-
-      const room = $("joinCode").value.trim().toUpperCase();
-
-      if (!/^[A-HJ-NP-Z2-9]{12}$/.test(room)) {
-        status("সঠিক ১২ অক্ষরের গোপন কোড লিখো।");
-        return;
-      }
-
-      const metaSnap = await db.ref("roomMeta/" + room).once("value");
-
-      if (!metaSnap.exists()) {
-        status("এই কোডের কোনো চ্যাট পাওয়া যায়নি।");
-        return;
-      }
-
-      const membersRef = db.ref("members/" + room);
-      const membersSnap = await membersRef.once("value");
-      const members = membersSnap.val() || {};
-      const memberIds = Object.keys(members);
-
-      if (!members[currentUser.uid] && memberIds.length >= 2) {
-        status("এই চ্যাটে ইতিমধ্যে দুজন যুক্ত আছেন।");
-        return;
-      }
-
-      await membersRef.child(currentUser.uid).set(true);
-
-      const name = $("chatName").value.trim() || "প্রিয় মানুষ";
-      localStorage.setItem("amader_bhalobasha_chat_name", name);
-
-      showChat(room);
-      status("");
-    } catch (error) {
-      console.error(error);
-      status("যুক্ত হওয়া যায়নি। কোড, ইন্টারনেট ও Database Rules পরীক্ষা করো।");
-    } finally {
-      $("joinRoomBtn").disabled = false;
-    }
-  }
-
-  $("openChatBtn").addEventListener("click", async () => {
-    openDialog("chatDialog");
-    $("chatName").value =
-      localStorage.getItem("amader_bhalobasha_chat_name") || "";
-
-    try {
-      await signIn();
-      const room = localStorage.getItem(savedRoomKey);
-
-      if (room) {
-        const memberSnap = await db.ref(
-          "members/" + room + "/" + currentUser.uid
-        ).once("value");
-
-        if (memberSnap.val() === true) {
-          showChat(room);
-        } else {
-          showSetup();
-        }
-      } else {
-        showSetup();
-      }
-    } catch (error) {
-      console.error(error);
-      status("সংযোগ হয়নি। ইন্টারনেট ও Firebase সেটিংস পরীক্ষা করো।");
-    }
-  });
-
-  $("createRoomBtn").addEventListener("click", createRoom);
-  $("joinRoomBtn").addEventListener("click", joinRoom);
-
-  $("copyRoomCodeBtn").addEventListener("click", async () => {
-    try {
-      await navigator.clipboard.writeText(currentRoom);
-      $("roomStatus").textContent = "গোপন কোড কপি হয়েছে: " + currentRoom;
-    } catch (error) {
-      $("roomStatus").textContent = "তোমার গোপন কোড: " + currentRoom;
-    }
-  });
-
-  $("leaveRoomBtn").addEventListener("click", () => {
-    if (messageListener && currentRoom) {
-      db.ref("messages/" + currentRoom)
-        .off("value", messageListener);
-    }
-
-    messageListener = null;
-    currentRoom = "";
-    showSetup();
-  });
-
-  $("closeChatBtn").addEventListener("click", () => {
-    if (messageListener && currentRoom) {
-      db.ref("messages/" + currentRoom)
-        .off("value", messageListener);
-    }
-
-    messageListener = null;
-    $("chatDialog").close();
-  });
-
-  $("chatForm").addEventListener("submit", async event => {
-    event.preventDefault();
-
-    const text = $("chatInput").value.trim();
-    if (!text || !currentRoom || !currentUser) return;
-
-    const button = $("sendChatBtn");
-    button.disabled = true;
-
-    try {
-      const name =
-        localStorage.getItem("amader_bhalobasha_chat_name") ||
-        "আমার মানুষ";
-
-      await db.ref("messages/" + currentRoom).push({
-        uid: currentUser.uid,
-        name: name,
-        text: text,
-        time: firebase.database.ServerValue.TIMESTAMP
-      });
-
-      $("chatInput").value = "";
-    } catch (error) {
-      console.error(error);
-      alert("মেসেজ পাঠানো যায়নি। Database Rules ও ইন্টারনেট পরীক্ষা করো।");
-    } finally {
-      button.disabled = false;
-    }
-  });
-
+ const auth=firebase.auth(), db=firebase.database();
+ let currentUser=null,currentRoom='',messageListener=null,presenceListener=null,memberListener=null;
+ let mediaRecorder=null,voiceChunks=[],voiceBlob=null,voiceTimer=null;
+ const roomKey='amader_bhalobasha_chat_room';
+ const nameKey='amader_bhalobasha_chat_name';
+ const roomRef=(path)=>db.ref(path+'/'+currentRoom);
+ const featureRef=(kind)=>db.ref('features/'+currentRoom+'/'+kind);
+ function chatStatus(t){$('chatSetupStatus').textContent=t;}
+ async function signIn(){if(auth.currentUser){currentUser=auth.currentUser;return currentUser;}const r=await auth.signInAnonymously();currentUser=r.user;return currentUser;}
+ function makeRoomCode(){const chars='ABCDEFGHJKLMNPQRSTUVWXYZ23456789';const bytes=new Uint8Array(12);crypto.getRandomValues(bytes);return Array.from(bytes,b=>chars[b%chars.length]).join('');}
+ function showSetup(){$('chatSetup').classList.remove('hide');$('chatArea').classList.add('hide');}
+ function clearListeners(){if(messageListener&&currentRoom)db.ref('messages/'+currentRoom).off('value',messageListener);if(presenceListener&&currentRoom)featureRef('presence').off('value',presenceListener);if(memberListener&&currentRoom)db.ref('members/'+currentRoom).off('value',memberListener);messageListener=presenceListener=memberListener=null;}
+ function showChat(room){
+   clearListeners();currentRoom=room;localStorage.setItem(roomKey,room);
+   $('chatSetup').classList.add('hide');$('chatArea').classList.remove('hide');$('roomStatus').textContent='আমাদের গোপন কোড: '+room;
+   const ref=db.ref('messages/'+room);
+   messageListener=snap=>{const box=$('chatMessages');box.replaceChildren();snap.forEach(ch=>{const m=ch.val();if(!m||typeof m.text!=='string')return;const b=document.createElement('div');b.className='chat-bubble '+(m.uid===currentUser.uid?'chat-mine':'chat-theirs');const t=document.createElement('div');t.textContent=m.text;const meta=document.createElement('div');meta.className='chat-meta';meta.textContent=(m.name||'প্রিয় মানুষ')+' · '+(m.time?new Date(m.time).toLocaleTimeString('bn-BD',{hour:'2-digit',minute:'2-digit'}):'এখন');b.append(t,meta);box.appendChild(b);});box.scrollTop=box.scrollHeight;};
+   ref.limitToLast(100).on('value',messageListener);
+   startPresence();loadCloudPhotos();loadVoices();loadTimedLetters();
+ }
+ async function createRoom(){try{$('createRoomBtn').disabled=true;chatStatus('নিরাপদ সংযোগ তৈরি হচ্ছে…');await signIn();const room=makeRoomCode(),name=$('chatName').value.trim()||state.yourName||'আমার মানুষ';await db.ref('roomMeta/'+room).set({createdBy:currentUser.uid,createdAt:firebase.database.ServerValue.TIMESTAMP});await db.ref('members/'+room+'/'+currentUser.uid).set(true);localStorage.setItem(nameKey,name);showChat(room);alert('তোমাদের গোপন চ্যাট কোড: '+room+'\nকোডটি তোমার সঙ্গীর সঙ্গে শেয়ার করো।');}catch(e){console.error(e);chatStatus('চ্যাট তৈরি হয়নি। Firebase Rules ও সংযোগ পরীক্ষা করো।');}finally{$('createRoomBtn').disabled=false;}}
+ async function joinRoom(){try{$('joinRoomBtn').disabled=true;chatStatus('কোড যাচাই করা হচ্ছে…');await signIn();const room=$('joinCode').value.trim().toUpperCase();if(!/^[A-HJ-NP-Z2-9]{12}$/.test(room)){chatStatus('সঠিক ১২ অক্ষরের কোড লিখো।');return;}const meta=await db.ref('roomMeta/'+room).once('value');if(!meta.exists()){chatStatus('এই কোডের কোনো চ্যাট পাওয়া যায়নি।');return;}const snap=await db.ref('members/'+room).once('value'),members=snap.val()||{},ids=Object.keys(members).filter(k=>k!=='slots');if(!members[currentUser.uid]&&ids.length>=2){chatStatus('এই চ্যাটে ইতিমধ্যে দুজন যুক্ত আছেন।');return;}await db.ref('members/'+room+'/'+currentUser.uid).set(true);localStorage.setItem(nameKey,$('chatName').value.trim()||state.partnerName||'প্রিয় মানুষ');showChat(room);chatStatus('');}catch(e){console.error(e);chatStatus('যুক্ত হওয়া যায়নি। কোড, ইন্টারনেট ও Database Rules পরীক্ষা করো।');}finally{$('joinRoomBtn').disabled=false;}}
+ function startPresence(){
+   const p=featureRef('presence'),my=p.child(currentUser.uid);
+   my.onDisconnect().set({online:false,lastSeen:firebase.database.ServerValue.TIMESTAMP,name:localStorage.getItem(nameKey)||state.yourName||'প্রিয় মানুষ'});
+   my.set({online:true,lastSeen:firebase.database.ServerValue.TIMESTAMP,name:localStorage.getItem(nameKey)||state.yourName||'প্রিয় মানুষ'});
+   memberListener=db.ref('members/'+currentRoom).on('value',ms=>{const members=ms.val()||{},other=Object.keys(members).find(k=>k!==currentUser.uid&&k!=='slots');if(!other){$('partnerPresence').textContent='সঙ্গীর যোগ দেওয়ার অপেক্ষায়';$('partnerDot').classList.remove('on');return;}if(presenceListener)p.off('value',presenceListener);presenceListener=s=>{const data=s.child(other).val();const online=!!(data&&data.online);$('partnerPresence').textContent=online?'সঙ্গী এখন অনলাইনে 💚':('সঙ্গী অফলাইনে'+(data&&data.lastSeen?' · শেষ দেখা '+new Date(data.lastSeen).toLocaleTimeString('bn-BD',{hour:'2-digit',minute:'2-digit'}):''));$('partnerDot').classList.toggle('on',online);$('homePresence').textContent=online?'🟢 তোমার সঙ্গী এখন অনলাইনে':'🌙 '+$('partnerPresence').textContent;};p.on('value',presenceListener);});
+ }
+ async function requireRoom(){if(!currentRoom||!currentUser){toast('আগে চ্যাটে গিয়ে রুম তৈরি করো বা কোড দিয়ে যুক্ত হও।');return false;}return true;}
+ function compressImage(file){return new Promise((resolve,reject)=>{const img=new Image(),url=URL.createObjectURL(file);img.onload=()=>{const max=640,scale=Math.min(1,max/Math.max(img.width,img.height)),canvas=document.createElement('canvas');canvas.width=Math.round(img.width*scale);canvas.height=Math.round(img.height*scale);canvas.getContext('2d').drawImage(img,0,0,canvas.width,canvas.height);URL.revokeObjectURL(url);resolve(canvas.toDataURL('image/jpeg',.62));};img.onerror=()=>{URL.revokeObjectURL(url);reject(new Error('ছবি পড়া যায়নি'));};img.src=url;});}
+ async function loadCloudPhotos(){const grid=$('photoGrid');if(!grid)return;grid.replaceChildren();(state.photos||[]).forEach((item,index)=>{if(!item||!item.data)return;const card=document.createElement('div');card.className='photo';const img=document.createElement('img');img.src=item.data;img.alt=item.caption||'এই ফোনের পুরনো স্মৃতি';const p=document.createElement('p');p.textContent=(item.caption||'পুরনো স্মৃতি')+' · শুধু এই ফোনে';const del=document.createElement('button');del.className='btn soft';del.textContent='মুছে ফেলো';del.addEventListener('click',()=>{if(confirm('এই ফোনের পুরনো ছবিটি মুছবে?')){state.photos.splice(index,1);persist();loadCloudPhotos();}});card.append(img,p,del);grid.appendChild(card);});if(!currentRoom){if(!grid.children.length)grid.innerHTML='<p class="empty">আগে চ্যাট রুমে যুক্ত হও, তারপর দুজনের স্মৃতি দেখা যাবে।</p>';return;}try{const snap=await featureRef('photos').limitToLast(60).once('value');if(!snap.exists()){grid.innerHTML='<p class="empty">এখনো কোনো শেয়ার করা ছবি নেই। প্রথম স্মৃতিটি যোগ করো ❤️</p>';return;}snap.forEach(child=>{const item=child.val();if(!item||!item.data)return;const card=document.createElement('div');card.className='photo';const img=document.createElement('img');img.src=item.data;img.alt=item.caption||'আমাদের স্মৃতি';const p=document.createElement('p');p.textContent=(item.caption||'আমাদের সুন্দর স্মৃতি')+' · '+(item.by||'প্রিয় মানুষ');const del=document.createElement('button');del.className='btn soft';del.textContent='মুছে ফেলো';del.addEventListener('click',async()=>{if(confirm('এই শেয়ার করা ছবিটি দুজনের অ্যালবাম থেকে মুছবে?')){try{await featureRef('photos/'+child.key).remove();loadCloudPhotos();}catch(e){toast('মুছতে পারিনি। Rules পরীক্ষা করো।');}}});card.append(img,p,del);grid.appendChild(card);});}catch(e){console.error(e);grid.innerHTML='<p class="empty">ছবি লোড হয়নি। Firebase Rules পরীক্ষা করো।</p>';}}
+ $('uploadPhotoBtn').addEventListener('click',async()=>{if(!await requireRoom())return;const file=$('cloudPhotoInput').files[0];if(!file){toast('আগে একটি ছবি নির্বাচন করো।');return;}if(!file.type.startsWith('image/')){toast('ছবির ফাইল নির্বাচন করো।');return;}const btn=$('uploadPhotoBtn');btn.disabled=true;$('photoStatus').textContent='ছবি ছোট করে শেয়ার করা হচ্ছে…';try{const data=await compressImage(file);if(data.length>650000){throw new Error('ছবিটি অনেক বড়। অন্য ছোট ছবি ব্যবহার করো।');}await featureRef('photos').push({data,caption:$('cloudPhotoCaption').value.trim()||file.name,by:localStorage.getItem(nameKey)||state.yourName||'আমার মানুষ',uid:currentUser.uid,time:firebase.database.ServerValue.TIMESTAMP});$('cloudPhotoInput').value='';$('cloudPhotoCaption').value='';$('photoStatus').textContent='স্মৃতি দুজনের জন্য শেয়ার হয়েছে ❤️';loadCloudPhotos();}catch(e){console.error(e);$('photoStatus').textContent=e.message||'ছবি শেয়ার হয়নি। Rules/ইন্টারনেট পরীক্ষা করো।';}finally{btn.disabled=false;}});
+ async function loadVoices(){const list=$('voiceList');if(!list)return;list.replaceChildren();if(!currentRoom){list.innerHTML='<p class="empty">ভয়েস মেসেজ দেখতে আগে একই চ্যাট রুমে যুক্ত হও।</p>';return;}try{const snap=await featureRef('voices').limitToLast(30).once('value');if(!snap.exists()){list.innerHTML='<p class="empty">এখনো কোনো ভয়েস মেসেজ নেই। প্রথম বার্তাটি পাঠাও 🎙️</p>';return;}snap.forEach(ch=>{const m=ch.val();if(!m||!m.data)return;const card=document.createElement('div');card.className='photo';const p=document.createElement('p');p.textContent=(m.by||'প্রিয় মানুষ')+' · '+(m.time?new Date(m.time).toLocaleString('bn-BD'):'');const audio=document.createElement('audio');audio.controls=true;audio.src=m.data;audio.style.width='100%';const del=document.createElement('button');del.className='btn soft';del.textContent='মুছে ফেলো';del.addEventListener('click',async()=>{if(confirm('এই ভয়েস মেসেজ মুছবে?')){await featureRef('voices/'+ch.key).remove();loadVoices();}});card.append(p,audio,del);list.appendChild(card);});}catch(e){console.error(e);list.innerHTML='<p class="empty">ভয়েস মেসেজ লোড হয়নি। Rules পরীক্ষা করো।</p>';}}
+ $('recordVoiceBtn').addEventListener('click',async()=>{try{if(!navigator.mediaDevices||!navigator.mediaDevices.getUserMedia||!window.MediaRecorder)throw new Error('এই ব্রাউজারে অডিও রেকর্ডিং সমর্থিত নয়। HTTPS-এ GitHub Pages খুলে চেষ্টা করো।');const stream=await navigator.mediaDevices.getUserMedia({audio:true});voiceChunks=[];mediaRecorder=new MediaRecorder(stream);mediaRecorder.ondataavailable=e=>{if(e.data&&e.data.size)voiceChunks.push(e.data);};mediaRecorder.onstop=()=>{stream.getTracks().forEach(t=>t.stop());voiceBlob=new Blob(voiceChunks,{type:mediaRecorder.mimeType||'audio/webm'});const url=URL.createObjectURL(voiceBlob);$('voicePreview').src=url;$('voicePreview').classList.remove('hide');$('sendVoiceBtn').disabled=voiceBlob.size>220000;$('voiceStatus').textContent=voiceBlob.size>220000?'অডিও বড় হয়েছে। ১৫ সেকেন্ডের মধ্যে ছোট করে আবার রেকর্ড করো।':'রেকর্ড হয়েছে। শুনে ভালো লাগলে পাঠাও ❤️';};mediaRecorder.start();$('recordVoiceBtn').disabled=true;$('stopVoiceBtn').disabled=false;$('sendVoiceBtn').disabled=true;$('voiceStatus').innerHTML='<span class="recording">🔴 রেকর্ড চলছে… সর্বোচ্চ ১৫ সেকেন্ড</span>';voiceTimer=setTimeout(()=>{if(mediaRecorder&&mediaRecorder.state==='recording')mediaRecorder.stop();$('recordVoiceBtn').disabled=false;$('stopVoiceBtn').disabled=true;},15000);}catch(e){console.error(e);$('voiceStatus').textContent=e.message||'মাইক্রোফোন চালু হয়নি। অনুমতি পরীক্ষা করো।';}});
+ $('stopVoiceBtn').addEventListener('click',()=>{if(mediaRecorder&&mediaRecorder.state==='recording')mediaRecorder.stop();clearTimeout(voiceTimer);$('recordVoiceBtn').disabled=false;$('stopVoiceBtn').disabled=true;});
+ $('sendVoiceBtn').addEventListener('click',async()=>{if(!await requireRoom()||!voiceBlob)return;if(voiceBlob.size>220000){toast('অডিও ফাইলটি বড়; ছোট করে রেকর্ড করো।');return;}const btn=$('sendVoiceBtn');btn.disabled=true;$('voiceStatus').textContent='ভয়েস মেসেজ শেয়ার হচ্ছে…';try{const data=await new Promise((resolve,reject)=>{const r=new FileReader();r.onload=()=>resolve(r.result);r.onerror=reject;r.readAsDataURL(voiceBlob);});await featureRef('voices').push({data,by:localStorage.getItem(nameKey)||state.yourName||'আমার মানুষ',uid:currentUser.uid,time:firebase.database.ServerValue.TIMESTAMP});voiceBlob=null;$('voicePreview').classList.add('hide');$('voicePreview').removeAttribute('src');$('voiceStatus').textContent='ভয়েস মেসেজ পাঠানো হয়েছে ❤️';loadVoices();}catch(e){console.error(e);$('voiceStatus').textContent='পাঠানো যায়নি। Database Rules/ইন্টারনেট পরীক্ষা করো।';}finally{btn.disabled=false;}});
+ async function loadTimedLetters(){const list=$('timedLetterList');if(!list)return;list.replaceChildren();if(!currentRoom){list.innerHTML='<p class="empty">চিঠি শেয়ার করতে আগে চ্যাট রুমে যুক্ত হও।</p>';return;}try{const snap=await featureRef('timedLetters').limitToLast(50).once('value');if(!snap.exists()){list.innerHTML='<p class="empty">এখনো কোনো ভবিষ্যতের চিঠি নেই।</p>';return;}const today=new Date();today.setHours(0,0,0,0);snap.forEach(ch=>{const m=ch.val();if(!m)return;const card=document.createElement('div');card.className='photo';const title=document.createElement('strong');title.textContent='💌 '+(m.title||'ভালোবাসার চিঠি');const date=document.createElement('p');date.textContent='খোলার তারিখ: '+m.openDate;card.append(title,date);if(m.openDate&&new Date(m.openDate+'T00:00:00')<=today){const body=document.createElement('p');body.className='letter';body.textContent=m.text||'';card.append(body);}else{const lock=document.createElement('p');lock.className='lock-note';lock.textContent='🔒 এই চিঠিটি নির্ধারিত দিনে খোলা যাবে।';card.append(lock);}if(m.uid===currentUser.uid){const del=document.createElement('button');del.className='btn soft';del.textContent='চিঠি মুছে ফেলো';del.addEventListener('click',async()=>{if(confirm('চিঠিটি দুজনের তালিকা থেকে মুছে ফেলবে?')){await featureRef('timedLetters/'+ch.key).remove();loadTimedLetters();}});card.append(del);}list.append(card);});}catch(e){console.error(e);list.innerHTML='<p class="empty">চিঠি লোড হয়নি। Rules পরীক্ষা করো।</p>';}}
+ $('saveTimedLetterBtn').addEventListener('click',async()=>{if(!await requireRoom())return;const title=$('timedLetterTitle').value.trim(),text=$('timedLetterText').value.trim(),date=$('timedLetterDate').value;if(!title||!text||!date){$('timedLetterStatus').textContent='শিরোনাম, চিঠি ও খোলার তারিখ—সব পূরণ করো।';return;}if(text.length>3000){$('timedLetterStatus').textContent='চিঠিটি ছোট করো।';return;}try{await featureRef('timedLetters').push({title,text,openDate:date,uid:currentUser.uid,by:localStorage.getItem(nameKey)||state.yourName||'আমার মানুষ',createdAt:firebase.database.ServerValue.TIMESTAMP});$('timedLetterTitle').value='';$('timedLetterText').value='';$('timedLetterDate').value='';$('timedLetterStatus').textContent='চিঠি দুজনের তালিকায় সংরক্ষিত হয়েছে 💌';loadTimedLetters();}catch(e){console.error(e);$('timedLetterStatus').textContent='চিঠি সংরক্ষণ হয়নি। Rules পরীক্ষা করো।';}});
+ $('openChatBtn').addEventListener('click',async()=>{openDialog('chatDialog');$('chatName').value=localStorage.getItem(nameKey)||state.yourName||'';try{await signIn();const room=localStorage.getItem(roomKey);if(room){const m=await db.ref('members/'+room+'/'+currentUser.uid).once('value');if(m.val()===true)showChat(room);else showSetup();}else showSetup();}catch(e){console.error(e);chatStatus('সংযোগ হয়নি। ইন্টারনেট ও Firebase সেটিংস পরীক্ষা করো।');}});
+ $('createRoomBtn').addEventListener('click',createRoom);$('joinRoomBtn').addEventListener('click',joinRoom);
+ $('copyRoomCodeBtn').addEventListener('click',async()=>{try{await navigator.clipboard.writeText(currentRoom);$('roomStatus').textContent='গোপন কোড কপি হয়েছে: '+currentRoom;}catch(e){$('roomStatus').textContent='তোমার গোপন কোড: '+currentRoom;}});
+ $('leaveRoomBtn').addEventListener('click',()=>{clearListeners();currentRoom='';showSetup();$('homePresence').textContent='🌙 অনলাইন স্ট্যাটাস দেখতে চ্যাটে যুক্ত হও।';});
+ $('closeChatBtn').addEventListener('click',()=>{clearListeners();$('chatDialog').close();});
+ $('chatForm').addEventListener('submit',async e=>{e.preventDefault();const text=$('chatInput').value.trim();if(!text||!currentRoom||!currentUser)return;const b=$('sendChatBtn');b.disabled=true;try{await db.ref('messages/'+currentRoom).push({uid:currentUser.uid,name:localStorage.getItem(nameKey)||state.yourName||'আমার মানুষ',text,time:firebase.database.ServerValue.TIMESTAMP});$('chatInput').value='';}catch(err){console.error(err);toast('মেসেজ পাঠানো যায়নি। Rules ও ইন্টারনেট পরীক্ষা করো।');}finally{b.disabled=false;}});
 })();
-  </script>
+</script>
 </body>
 </html>
